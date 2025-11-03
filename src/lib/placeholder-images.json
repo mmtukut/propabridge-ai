@@ -1,3 +1,82 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "A happy Nigerian family in a modern living room",
+      "imageUrl": "https://images.unsplash.com/photo-1609220136736-443140cffec6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxoYXBweSUyMGZhbWlseSUyMGhvbWV8ZW58MHx8fHwxNzYyMjAxNjYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy family home"
+    },
+    {
+      "id": "problem",
+      "description": "A frustrated person looking at their laptop, surrounded by scattered papers.",
+      "imageUrl": "https://images.unsplash.com/photo-1544717305-f9c88f2897bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmcnVzdHJhdGVkJTIwcGVyc29uJTIwbGFwdG9wfGVufDB8fHx8MTc2MjIwMTY1OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "frustrated person laptop"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Portrait of a smiling young professional woman.",
+      "imageUrl": "https://images.unsplash.com/photo-1610631066894-62452ccb927c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcm9mZXNzaW9uYWwlMjB3b21hbnxlbnwwfHx8fDE3NjIxMTk3NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional woman"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Portrait of a confident middle-aged man, a property owner.",
+      "imageUrl": "https://images.unsplash.com/photo-1607031542107-f6f46b5d54e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjIxMTM4MTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Portrait of a happy young couple.",
+      "imageUrl": "https://images.unsplash.com/photo-1541089404510-5c9a779841fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGNvdXBsZXxlbnwwfHx8fDE3NjIxNDYyMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy couple"
+    },
+    {
+      "id": "for-landlords",
+      "description": "A professional property manager standing in front of a modern apartment building.",
+      "imageUrl": "https://images.unsplash.com/photo-1698065923333-de2f8d294f9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcm9wZXJ0eSUyMG1hbmFnZXJ8ZW58MHx8fHwxNzYyMjAxNjU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "property manager"
+    },
+    {
+      "id": "location-lagos",
+      "description": "Skyline of Lagos, featuring the Lekki-Ikoyi Link Bridge.",
+      "imageUrl": "https://images.unsplash.com/photo-1569706971306-de5d78f6418e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsYWdvcyUyMGNpdHl8ZW58MHx8fHwxNzYyMjAxNjYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lagos city"
+    },
+    {
+      "id": "location-abuja",
+      "description": "A landmark building or cityscape of Abuja.",
+      "imageUrl": "https://images.unsplash.com/photo-1734257854118-34eefda5e50c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhYnVqYSUyMGxhbmRtYXJrfGVufDB8fHx8MTc2MjIwMTY2MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abuja landmark"
+    },
+    {
+      "id": "location-ph",
+      "description": "A pleasant street or area in Port Harcourt.",
+      "imageUrl": "https://images.unsplash.com/photo-1637299394104-70932260f868?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwb3J0JTIwaGFyY291cnQlMjBzdHJlZXR8ZW58MHx8fHwxNzYyMjAxNjYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "port harcourt street"
+    },
+    {
+      "id": "location-ibadan",
+      "description": "A cityscape view of Ibadan.",
+      "imageUrl": "https://images.unsplash.com/photo-1660983831373-3f8f926f1204?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpYmFkYW4lMjBjaXR5c2NhcGV8ZW58MHx8fHwxNzYyMjAxNjU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ibadan cityscape"
+    },
+    {
+      "id": "property-1",
+      "description": "Exterior of a modern duplex in Nigeria.",
+      "imageUrl": "https://images.unsplash.com/photo-1531971589569-0d9370cbe1e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBob3VzZXxlbnwwfHx8fDE3NjIxODc5OTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern house"
+    },
+    {
+      "id": "property-2",
+      "description": "Living room of a stylish apartment.",
+      "imageUrl": "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtb2Rlcm4lMjBsaXZpbmdyb29tfGVufDB8fHx8MTc2MjIwMTY2MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern livingroom"
+    },
+    {
+      "id": "property-3",
+      "description": "A clean, modern kitchen in a new property.",
+      "imageUrl": "https://images.unsplash.com/photo-1556912167-f556f1f39fdf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBraXRjaGVufGVufDB8fHx8MTc2MjE3NzA5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern kitchen"
+    }
+  ]
 }
