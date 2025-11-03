@@ -4,12 +4,12 @@ import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const benefits = [
-  'Free listing for basic properties',
-  'Reach 10,000+ verified renters monthly',
-  'AI optimization for better visibility',
-  'Secure tenant screening',
-  'Fast payment processing',
-  'No upfront costs',
+  'Access 10,000+ verified renters monthly',
+  'Utilize AI for listing optimization and price intelligence',
+  'Reduce vacancy rates with qualified tenant matching',
+  'Benefit from enterprise-grade security and compliance',
+  'Seamlessly integrate with our robust developer APIs',
+  'Partner with a leader in real estate technology',
 ];
 
 const landlordImage = PlaceHolderImages.find(p => p.id === 'for-landlords');
@@ -21,10 +21,10 @@ export function ForLandlords() {
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           <div className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Are You a Landlord or Developer?
+              For Landlords, Developers & Government
             </h2>
             <p className="text-xl text-gray-600">
-              List Your Property. Reach Thousands. Get Paid Faster.
+              Leverage Propabridge's infrastructure to de-risk investments, accelerate sales, and build trust at scale.
             </p>
             <ul className="space-y-3">
               {benefits.map((benefit, index) => (
@@ -40,8 +40,8 @@ export function ForLandlords() {
               <Button href="/landlords" size="lg" rounded="full">
                 List Your Property
               </Button>
-              <Button href="/landlords#pricing" variant="ghost" size="lg" rounded="full">
-                See Pricing
+              <Button href="/contact" variant="ghost" size="lg" rounded="full">
+                Explore Partnership
               </Button>
             </div>
           </div>

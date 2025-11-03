@@ -1,22 +1,24 @@
-import { MessageSquare, ShieldCheck, KeyRound } from 'lucide-react';
+import { Bot, ShieldCheck, KeyRound } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const steps = [
   {
-    icon: <MessageSquare className="w-10 h-10 text-primary" />,
-    title: 'Describe Your Dream Home',
-    description: "Just tell our AI what you're looking for — in your own words. '3-bedroom flat in Lekki, budget ₦2-3M, parking essential.' Done.",
+    icon: <Bot className="w-10 h-10 text-primary" />,
+    title: 'Propabridge AI Search (B2C)',
+    description: "For Renters & Buyers: Find verified properties in seconds using natural language. Our AI understands your needs, eliminating fraud and endless searching.",
+    target: "For Renters & Buyers"
   },
   {
     icon: <ShieldCheck className="w-10 h-10 text-accent-green" />,
-    title: 'Browse 100% Verified Listings',
-    description: 'Every property verified before publication. Real photos, accurate prices, authentic landlords. No fake listings. Ever.',
+    title: 'Propabridge Verify (B2B/B2G)',
+    description: 'For Landlords & Gov: An enterprise-grade platform for AI-powered identity, document, and property verification, ensuring compliance and de-risking investments.',
+    target: "For Enterprise & Government"
   },
   {
     icon: <KeyRound className="w-10 h-10 text-accent-yellow" />,
-    title: 'Connect & Move In',
-    description: 'Chat directly with landlords. Schedule viewings. Complete transactions securely. Average time from search to keys: 48 hours.',
+    title: 'Propabridge Intelligence (API)',
+    description: 'For Developers: Access our robust APIs for geospatial data, market trends, and property intelligence to build next-generation real estate applications.',
+    target: "For Developers"
   },
 ];
 
@@ -25,8 +27,8 @@ export function HowItWorks() {
     <section className="bg-white py-20 lg:py-24">
       <div className="container max-w-7xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">How Propabridge Works</h2>
-          <p className="mt-4 text-xl text-gray-600">From search to keys in 3 simple steps</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">Our Foundational Infrastructure</h2>
+          <p className="mt-4 text-xl text-gray-600">Three core products powering the future of African real estate.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
@@ -44,8 +46,8 @@ export function HowItWorks() {
         </div>
 
         <div className="text-center mt-16">
-          <Button href="/search" size="lg" variant="coral" rounded="full">
-            Try It Now — It's Free
+          <Button href="/contact" size="lg" variant="coral" rounded="full">
+            Explore Our Technology
           </Button>
         </div>
       </div>

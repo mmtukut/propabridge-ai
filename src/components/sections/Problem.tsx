@@ -3,9 +3,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const stats = [
-    { value: "3-6 Weeks", label: "Average Search Time" },
     { value: "78%", label: "Encounter Fake Listings" },
-    { value: "₦500K+", label: "Lost to Fraud Yearly" },
+    { value: "₦500B+", label: "Lost to Fraud Yearly" },
+    { value: "6-8 Weeks", label: "Average Search Time" },
 ]
 
 const problemImage = PlaceHolderImages.find(p => p.id === 'problem');
@@ -28,12 +28,12 @@ export function Problem() {
                     </div>
                     <div className="space-y-6">
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                            Finding a Home in Nigeria Shouldn't Be This Hard
+                            The ₦500 Billion Trust Deficit
                         </h2>
                         <p className="text-lg text-gray-600 leading-relaxed">
-                            Every year, Nigerians waste weeks searching for properties. Fake listings. Endless agent calls. Wasted transport to view apartments that don't exist. 78% of renters report encountering fraud. Traditional search takes 3-6 weeks. Agent fees can reach 10% of annual rent.
+                            Nigeria's real estate market is plagued by a fundamental lack of trust. Every year, over ₦500 billion is lost to property fraud, affecting millions. 78% of renters encounter fake listings, turning a home search into a 6-8 week ordeal filled with risk and inefficiency.
                         </p>
-                        <p className="text-lg text-gray-800 font-semibold">There had to be a better way.</p>
+                        <p className="text-lg text-gray-800 font-semibold">We are solving the problem at its core by building the infrastructure for trust.</p>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
                             {stats.map(stat => (
                                 <Card key={stat.label} className="bg-primary-100/50 border-primary-100 text-center">
