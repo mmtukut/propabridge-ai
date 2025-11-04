@@ -45,20 +45,20 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, rounded, asChild = false, href, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
 
     if (href) {
       return (
-        <Link href={href} passHref legacyBehavior>
-          <a
-            ref={ref as React.Ref<HTMLAnchorElement>}
+        <Link href={href} passHref>
+          <button
+            ref={ref}
             className={cn(buttonVariants({ variant, size, rounded, className }))}
-            {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+            {...props}
           />
         </Link>
       );
     }
     
+    const Comp = asChild ? Slot : "button";
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, rounded, className }))}
