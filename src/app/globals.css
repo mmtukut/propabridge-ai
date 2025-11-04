@@ -4,66 +4,67 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%; /* Light mode background (not default) */
-    --foreground: 222 84% 5%;
+    /* Background Layers */
+    --background: 144 15% 5%; /* --bg-deepest */
+    --foreground: 0 0% 98%;   /* --text-primary */
 
-    --card: 210 40% 98%;
-    --card-foreground: 222 84% 5%;
-
-    --popover: 210 40% 98%;
-    --popover-foreground: 222 84% 5%;
-
-    --primary: 151 83% 46%; /* Bright Green from image */
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 215 28% 17%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 215 28% 17%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 151 83% 46%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 215 28% 27%; /* Brighter border for dark theme */
-    --input: 215 28% 22%;
-    --ring: 151 83% 46%;
-
-    --radius: 12px;
-  }
-
-  .dark {
-    /* Tech Haven Inspired Dark Theme */
-    --background: 144 15% 5%; /* Very dark green */
-    --foreground: 0 0% 98%; /* Almost white */
-
-    --card: 144 10% 9%; /* Slightly lighter dark green */
+    --card: 144 10% 9%;       /* --bg-elevated */
     --card-foreground: 0 0% 98%;
 
-    --popover: 144 15% 5%;
+    --popover: 144 10% 9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 151 83% 46%; /* Bright Green for primary actions */
+    /* Primary Accent (Digital Green) */
+    --primary: 151 83% 46%;         /* --accent-primary */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 151 83% 46%; /* Using bright green as secondary as well */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 144 10% 15%; /* --bg-subtle */
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 144 10% 12%; /* Lighter gray-green for muted elements */
-    --muted-foreground: 0 0% 60%; 
+    --muted: 144 10% 12%;        /* --bg-hover */
+    --muted-foreground: 0 0% 78%; /* --text-secondary */
 
-    --accent: 151 83% 50%; /* A slightly brighter green for accents */
+    --accent: 151 83% 46%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 144 10% 15%; /* Subtle border color */
-    --input: 144 10% 12%;
-    --ring: 151 83% 50%;
+    --border: 144 10% 15%;       /* --bg-subtle */
+    --input: 144 10% 15%;
+    --ring: 151 83% 56%;        /* --accent-glow */
+    
+    --radius: 12px;
+  }
+
+  .dark {
+    --background: 144 15% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 144 10% 9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 144 10% 9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 151 83% 46%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 144 10% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 144 10% 12%;
+    --muted-foreground: 0 0% 78%;
+
+    --accent: 151 83% 46%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 144 10% 15%;
+    --input: 144 10% 15%;
+    --ring: 151 83% 56%;
   }
 }
 
@@ -72,7 +73,6 @@
     @apply border-border;
   }
   html {
-    /* Apply dark theme by default */
     @apply dark;
   }
   body {
