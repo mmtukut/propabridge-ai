@@ -5,6 +5,7 @@ import { WhyPropabridge } from '@/components/sections/WhyPropabridge';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { ForLandlords } from '@/components/sections/ForLandlords';
 import { Cta } from '@/components/sections/Cta';
+import { PopularLocations } from '@/components/sections/PopularLocations';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Problem />
       <HowItWorks />
       <WhyPropabridge />
+      <PopularLocations />
       <Testimonials />
       <ForLandlords />
       <Cta />

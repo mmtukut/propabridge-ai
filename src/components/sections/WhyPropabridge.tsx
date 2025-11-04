@@ -36,17 +36,21 @@ const features = [
 
 export function WhyPropabridge() {
   return (
-    <section className="bg-background py-20 lg:py-24">
-      <div className="container max-w-7xl">
+    <section className="bg-background py-20 lg:py-32 relative">
+       <div className="absolute inset-0 z-0 opacity-20">
+          <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[200px] -translate-x-1/2 -translate-y-1/2" />
+      </div>
+      <div className="container max-w-7xl relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">Our Foundational Difference</h2>
+          <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">Our Foundational Difference</h2>
+          <p className="mt-4 text-xl text-muted-foreground">Why we are the undisputed leader in property technology.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature) => (
-            <Card key={feature.title} className="bg-white text-left p-6 border-none shadow-md hover:shadow-xl transition-shadow duration-300 rounded-2xl">
+            <Card key={feature.title} className="bg-card/50 border-border/50 rounded-2xl p-8 backdrop-blur-sm text-left transition-all duration-300 ease-in-out hover:-translate-y-2 hover:border-primary/50 hover:shadow-glow-primary">
               <div className="mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <h3 className="text-xl font-bold font-headline mb-2">{feature.title}</h3>
+              <p className="text-muted-foreground">{feature.description}</p>
             </Card>
           ))}
         </div>
