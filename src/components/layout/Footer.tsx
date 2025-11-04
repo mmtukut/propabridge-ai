@@ -12,25 +12,32 @@ const socialLinks = [
 
 const footerLinks = {
   product: [
+    { label: 'AI Search', href: '/products/ai-search' },
+    { label: 'Verify', href: '/products/verify' },
+    { label: 'Intelligence', href: '/products/intelligence' },
     { label: 'How It Works', href: '/how-it-works' },
+    { label: 'Trust & Safety', href: '/trust-safety' },
+  ],
+  solutions: [
     { label: 'For Renters', href: '/renters' },
     { label: 'For Landlords', href: '/landlords' },
-    { label: 'Trust & Safety', href: '/trust-safety' },
-    { label: 'Pricing', href: '/landlords#pricing' },
+    { label: 'For Developers', href: '/solutions/developers' },
+    { label: 'For Government', href: '/solutions/government' },
+    { label: 'For Enterprises', href: '/solutions/enterprises' },
   ],
   resources: [
     { label: 'Blog', href: '/resources/blog' },
     { label: 'Guides', href: '/resources/guides' },
     { label: 'FAQs', href: '/resources/faq' },
-    { label: 'Press Kit', href: '#' },
-    { label: 'API Docs', href: '#' },
+    { label: 'API Docs', href: '/technology/api-docs' },
+    { label: 'Case Studies', href: '/insights/case-studies' },
   ],
   company: [
     { label: 'About Us', href: '/about' },
-    { label: 'Team', href: '/about#team' },
-    { label: 'Careers', href: '#' },
+    { label: 'Careers', href: '/company/careers' },
+    { label: 'Press', href: '/company/press' },
     { label: 'Contact', href: '/contact' },
-    { label: 'Support', href: '/contact' },
+    { label: 'Partners', href: '/partners' },
   ],
 };
 
@@ -38,14 +45,14 @@ export function Footer() {
   return (
     <footer className="bg-background border-t">
       <div className="container max-w-7xl py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Column 1: Brand */}
-          <div className="space-y-4 md:col-span-1">
+          <div className="space-y-4 md:col-span-2">
             <Link href="/">
               <Logo />
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Find Your Home in Minutes, Not Weeks.
+              Building Nigeria's Infrastructure for Trust in Property.
             </p>
             <div className="flex space-x-3">
               {socialLinks.map((social) => (
@@ -77,12 +84,12 @@ export function Footer() {
                 ))}
               </ul>
             </div>
-            <div>
+             <div>
               <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
-                Resources
+                Solutions
               </h3>
               <ul className="mt-4 space-y-3">
-                {footerLinks.resources.map((link) => (
+                {footerLinks.solutions.map((link) => (
                   <li key={link.label}>
                     <Link href={link.href} className="text-base text-muted-foreground hover:text-foreground">
                       {link.label}
@@ -112,9 +119,8 @@ export function Footer() {
         <div className="mt-12 border-t pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Propabridge by Zippatek Digital Ltd. RC: 8527315</p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-foreground">Privacy Policy</Link>
-            <Link href="#" className="hover:text-foreground">Terms of Service</Link>
-            <Link href="#" className="hover:text-foreground">Cookie Policy</Link>
+            <Link href="/legal/privacy" className="hover:text-foreground">Privacy Policy</Link>
+            <Link href="/legal/terms" className="hover:text-foreground">Terms of Service</Link>
           </div>
         </div>
       </div>

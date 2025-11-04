@@ -7,8 +7,28 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Logo } from '@/components/branding/Logo';
-import { navLinks } from '@/lib/placeholder-data';
-import { cn } from '@/lib/utils';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { ChevronDown } from 'lucide-react';
+
+const navLinks = [
+  { 
+    label: 'Products', 
+    isDropdown: true, 
+    items: [
+      { label: 'AI Search', href: '/products/ai-search', description: 'For Renters & Buyers' },
+      { label: 'Verify', href: '/products/verify', description: 'For Enterprise & Government' },
+      { label: 'Intelligence', href: '/products/intelligence', description: 'For Developers & Analysts' },
+    ]
+  },
+  { href: '/how-it-works', label: 'How It Works' },
+  { href: '/trust-safety', label: 'Trust & Safety' },
+  { href: '/about', label: 'Company' },
+];
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,14 +58,30 @@ export function Header() {
                 </div>
                 <div className="flex flex-col space-y-4">
                   {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className="text-lg font-medium text-foreground hover:text-primary transition-colors"
-                    >
-                      {link.label}
-                    </Link>
+                    link.isDropdown ? (
+                      <div key={link.label}>
+                        <p className="text-lg font-medium text-foreground mb-2">{link.label}</p>
+                        {link.items?.map(item => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            onClick={() => setIsOpen(false)}
+                            className="block pl-4 py-2 text-base font-medium text-muted-foreground hover:text-primary transition-colors"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : (
+                      <Link
+                        key={link.href}
+                        href={link.href as string}
+                        onClick={() => setIsOpen(false)}
+                        className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    )
                   ))}
                   <div className="flex flex-col space-y-3 pt-6">
                     <Button href="/landlords" variant="secondary" size="lg">
@@ -64,13 +100,34 @@ export function Header() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="transition-colors text-muted-foreground hover:text-primary"
-            >
-              {link.label}
-            </Link>
+            link.isDropdown ? (
+              <DropdownMenu key={link.label}>
+                <DropdownMenuTrigger className="flex items-center gap-1 transition-colors text-muted-foreground hover:text-primary focus:outline-none">
+                  {link.label}
+                  <ChevronDown className="h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {link.items?.map(item => (
+                    <DropdownMenuItem key={item.href} asChild>
+                      <Link href={item.href}>
+                        <div>
+                          <p className="font-semibold">{item.label}</p>
+                          <p className="text-xs text-muted-foreground">{item.description}</p>
+                        </div>
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+               <Link
+                key={link.href}
+                href={link.href as string}
+                className="transition-colors text-muted-foreground hover:text-primary"
+              >
+                {link.label}
+              </Link>
+            )
           ))}
         </nav>
 
