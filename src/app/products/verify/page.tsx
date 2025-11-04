@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Bank, Building, Check, FileCheck, Government, Shield } from 'lucide-react';
+import { Bank, Building, Check, FileCheck, Landmark, Shield } from 'lucide-react';
 
 export default function VerifyProductPage() {
   return (
@@ -57,7 +57,7 @@ export default function VerifyProductPage() {
                     <p className="text-muted-foreground">AI-powered authenticity checks for Title Deeds, C of O, and other legal documents using OCR.</p>
                 </Card>
                  <Card className="bg-card/50 border-border/50 p-8 rounded-2xl text-center">
-                    <Government className="w-12 h-12 text-primary mx-auto mb-4" />
+                    <Landmark className="w-12 h-12 text-primary mx-auto mb-4" />
                     <h3 className="text-2xl font-bold font-headline mb-3">Property Verification</h3>
                     <p className="text-muted-foreground">Satellite and ground-truth validation for ownership, encumbrances, and physical inspections.</p>
                 </Card>
