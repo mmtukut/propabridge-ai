@@ -11,8 +11,8 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transform hover:-translate-y-0.5',
-        secondary: 'bg-card text-gray-900 border border-border hover:border-gray-400 hover:bg-gray-100',
-        ghost: 'text-gray-700 hover:bg-gray-100 hover:text-gray-900',
+        secondary: 'bg-secondary text-secondary-foreground border border-transparent hover:bg-secondary/80',
+        ghost: 'text-muted-foreground hover:bg-muted/50 hover:text-foreground',
         coral: 'bg-accent text-accent-foreground hover:bg-accent/90 shadow-md hover:shadow-lg',
         link: "text-primary underline-offset-4 hover:underline",
       },
@@ -31,7 +31,7 @@ const buttonVariants = cva(
     defaultVariants: {
       variant: 'primary',
       size: 'md',
-      rounded: 'default',
+      rounded: 'full',
     },
   }
 )

@@ -42,16 +42,16 @@ export function Header() {
                       key={link.href}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-lg font-medium text-gray-700 hover:text-primary transition-colors"
+                      className="text-lg font-medium text-foreground hover:text-primary transition-colors"
                     >
                       {link.label}
                     </Link>
                   ))}
                   <div className="flex flex-col space-y-3 pt-6">
-                    <Button href="/landlords" variant="secondary" size="lg" rounded="full">
+                    <Button href="/landlords" variant="secondary" size="lg">
                       List Your Property
                     </Button>
-                    <Button href="/search" size="lg" rounded="full">
+                    <Button href="/search" size="lg">
                       Start Your Search
                     </Button>
                   </div>
@@ -67,7 +67,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-primary"
+              className="transition-colors text-muted-foreground hover:text-primary"
             >
               {link.label}
             </Link>
@@ -75,10 +75,10 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
-          <Button href="/landlords" variant="ghost" rounded="full">
+          <Button href="/landlords" variant="ghost">
             List Your Property
           </Button>
-          <Button href="/search" rounded="full">
+          <Button href="/search">
             Start Your Search
           </Button>
         </div>
