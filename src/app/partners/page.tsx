@@ -1,11 +1,11 @@
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Handshake, GitMerge, Building, Bank, Landmark } from 'lucide-react';
+import { GitMerge, Building, Landmark } from 'lucide-react';
 import Link from 'next/link';
 
 const partnerTypes = [
   {
-    icon: <Bank className="w-10 h-10 text-primary" />,
+    icon: <Landmark className="w-10 h-10 text-primary" />,
     title: 'Financial Institutions',
     description: 'Integrate our verification and valuation APIs to de-risk lending, automate mortgages, and enhance compliance.',
     href: '/solutions/enterprises'
@@ -84,8 +84,8 @@ export default function PartnersPage() {
                 <p className="text-xl text-muted-foreground mb-10">
                     Let's discuss how a partnership with Propabridge can help you achieve your goals.
                 </p>
-                <Button href="/contact?inquiry=partnership" size="xl" className="shadow-glow-primary hover:shadow-glow-intense">
-                    Become a Partner
+                <Button asChild size="xl" className="shadow-glow-primary hover:shadow-glow-intense">
+                    <Link href="/contact?inquiry=partnership">Become a Partner</Link>
                 </Button>
             </div>
         </div>
