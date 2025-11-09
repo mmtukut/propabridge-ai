@@ -170,7 +170,7 @@ export default function DashboardLayout({
         <SidebarFooter>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton href="/login" tooltip="Logout">
+              <SidebarMenuButton href="/login" tooltip="Logout" variant="destructive" className="bg-destructive/10 text-destructive hover:bg-destructive hover:text-destructive-foreground">
                 <LogOut />
                 <span>Logout</span>
               </SidebarMenuButton>
@@ -179,13 +179,12 @@ export default function DashboardLayout({
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <header className="flex h-20 w-full items-center justify-between border-b bg-background/90 px-4 backdrop-blur-sm sm:px-6 md:px-8">
-            <div className="flex items-center gap-4">
-                <SidebarTrigger className="md:hidden" />
-                <h1 className="text-2xl font-bold font-headline text-glow">Dashboard</h1>
+        <header className="flex h-20 w-full items-center justify-between border-b bg-background/90 px-4 backdrop-blur-sm sm:px-6 md:justify-end">
+            <div className="flex items-center gap-4 md:hidden">
+                <SidebarTrigger />
             </div>
             <div className="flex items-center gap-4">
-                <Button variant="secondary" href="/landlords/new">List a New Property</Button>
+                <Button variant="primary" href="/landlords/new">List a New Property</Button>
                 <Avatar>
                     <AvatarImage src={user.avatar} alt={user.name} />
                     <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
