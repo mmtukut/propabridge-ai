@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
-import { ChevronDown, LayoutDashboard, LogOut, User as UserIcon } from 'lucide-react';
+import { ChevronDown, LayoutDashboard, LogOut, User as UserIcon, PlusCircle } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 const navLinks = [
@@ -64,8 +64,8 @@ const user = {
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  // This is a mock authentication state. In a real app, you'd use a context or a library like next-auth.
-  const [isAuthenticated, setIsAuthenticated] = useState(true); 
+  // This is a mock authentication state. In a real app, this would use a context or a library like next-auth.
+  const [isAuthenticated, setIsAuthenticated] = useState(false); 
 
   const AuthAction = () => {
     if (!isAuthenticated) {
@@ -84,7 +84,8 @@ export function Header() {
     return (
        <div className="flex items-center gap-4">
         <Button href={user.role === 'LANDLORD' ? '/landlords/new' : '/search'} className="hidden md:flex">
-          {user.role === 'LANDLORD' ? 'List a New Property' : 'Find a Verified Property'}
+          <PlusCircle className="mr-2 h-5 w-5" />
+          {user.role === 'LANDLORD' ? 'List a Property' : 'New Search'}
         </Button>
         <DropdownMenu>
           <DropdownMenuTrigger>
@@ -107,9 +108,11 @@ export function Header() {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <LogOut className="mr-2 h-4 w-4" />
-              <span>Logout</span>
+            <DropdownMenuItem asChild>
+              <Link href="/login">
+                <LogOut className="mr-2 h-4 w-4" />
+                <span>Logout</span>
+              </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
