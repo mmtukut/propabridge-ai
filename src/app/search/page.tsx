@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -22,27 +23,25 @@ import {
   ShieldCheck,
   LayoutGrid,
   List,
-  Map,
+  Map as MapIcon,
   Zap,
   TrendingUp,
   Bookmark,
 } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
+import { propertyPlaceholder } from '@/lib/placeholder-data';
+import { Wrapper as GoogleMapsWrapper, Status } from '@googlemaps/react-wrapper';
+import { MapComponent, Marker } from '@/components/maps/Map';
 
-type Property = {
-  id: string;
-  imageId: string;
-  type: string;
-  location: string;
-  price: string;
-  bedrooms: number;
-  bathrooms: number;
-  area: number;
-  verified: boolean;
-  matchScore: number;
+type Property = typeof propertyPlaceholder[0] & {
   description: string;
+  area: number;
+  coordinates: {
+    lat: number;
+    lng: number;
+  }
 };
 
 const amenities = [
@@ -147,7 +146,7 @@ function PropertyCardList({ property }: { property: Property }) {
             <div className="flex items-center gap-4 text-sm pt-2">
               <span className="flex items-center gap-1.5"><Bed size={16} /> {property.bedrooms} beds</span>
               <span className="flex items-center gap-1.5"><Bath size={16} /> {property.bathrooms} baths</span>
-              <span className="flex items-center gap-1.5"><Map size={16} /> {property.area} m²</span>
+              <span className="flex items-center gap-1.5"><MapIcon size={16} /> {property.area} m²</span>
             </div>
              <div className="flex items-end justify-between pt-4">
               <div>
@@ -165,6 +164,11 @@ function PropertyCardList({ property }: { property: Property }) {
   );
 }
 
+const render = (status: Status) => {
+  if (status === Status.FAILURE) return <p>Error loading maps</p>;
+  return <p>Loading...</p>;
+};
+
 export default function SearchPage() {
   const [priceRange, setPriceRange] = useState([1000000, 10000000]);
   const [properties, setProperties] = useState<Property[]>([]);
@@ -176,11 +180,15 @@ export default function SearchPage() {
       try {
         const res = await fetch('/api/search');
         const data = await res.json();
-        // Add description and area to the placeholder data
-        const detailedProperties = data.results.map((p: any) => ({
+        // Add mock description, area and coordinates
+        const detailedProperties = data.results.map((p: any, index: number) => ({
           ...p,
           description: "A stunning and newly built property boasting of spacious rooms, a fully fitted kitchen, 24/7 power supply, and top-notch security. An ideal home for professionals and families.",
-          area: Math.floor(Math.random() * 150) + 100 // Random area between 100-250 m²
+          area: Math.floor(Math.random() * 150) + 100, // Random area between 100-250 m²
+          coordinates: {
+            lat: 6.4474 + (Math.random() - 0.5) * 0.1 * index,
+            lng: 3.4723 + (Math.random() - 0.5) * 0.1 * index,
+          }
         }))
         setProperties(detailedProperties);
       } catch (error) {
@@ -412,7 +420,7 @@ export default function SearchPage() {
                   className="w-9 h-9 rounded-full"
                   onClick={() => setViewMode('map')}
                 >
-                  <Map />
+                  <MapIcon />
                 </Button>
               </div>
             </div>
@@ -437,8 +445,12 @@ export default function SearchPage() {
                 </div>
               )}
                {viewMode === 'map' && (
-                <Card className="bg-card border-border/50 rounded-2xl p-6 h-[600px] flex items-center justify-center">
-                    <p className="text-muted-foreground">Map view coming soon...</p>
+                <Card className="bg-card border-border/50 rounded-2xl h-[600px] md:h-[800px] overflow-hidden">
+                    <GoogleMapsWrapper apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''} render={render}>
+                        <MapComponent center={{ lat: 6.5244, lng: 3.3792 }} zoom={11}>
+                            {properties.map(prop => <Marker key={prop.id} position={prop.coordinates} />)}
+                        </MapComponent>
+                    </GoogleMapsWrapper>
                 </Card>
               )}
             </>

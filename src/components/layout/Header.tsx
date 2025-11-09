@@ -13,8 +13,10 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, LayoutDashboard, LogOut, User as UserIcon } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 const navLinks = [
   { 
@@ -52,10 +54,68 @@ const navLinks = [
   },
 ];
 
+const user = {
+  name: 'Tobi Otokiti',
+  email: 'tobi@propabridge.ng',
+  avatar: 'https://images.unsplash.com/photo-1610631066894-62452ccb927c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcm9mZXNzaW9uYWwlMjB3b21hbnxlbnwwfHx8fDE3NjIxMTk3NDR8MA&ixlib=rb-4.1.0&q=80&w=1080',
+  role: 'LANDLORD' // Can be 'RENTER' or 'LANDLORD'
+};
+
+
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   // This is a mock authentication state. In a real app, you'd use a context or a library like next-auth.
   const [isAuthenticated, setIsAuthenticated] = useState(true); 
+
+  const AuthAction = () => {
+    if (!isAuthenticated) {
+      return (
+        <>
+          <Button href="/login" variant="ghost">
+            Log In
+          </Button>
+          <Button href="/register">
+            Sign Up
+          </Button>
+        </>
+      )
+    }
+
+    return (
+       <div className="flex items-center gap-4">
+        <Button href={user.role === 'LANDLORD' ? '/landlords/new' : '/search'} className="hidden md:flex">
+          {user.role === 'LANDLORD' ? 'List a New Property' : 'Find a Verified Property'}
+        </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Avatar>
+              <AvatarImage src={user.avatar} alt={user.name} />
+              <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
+            </Avatar>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem asChild>
+              <Link href="/dashboard">
+                <LayoutDashboard className="mr-2 h-4 w-4" />
+                <span>Dashboard</span>
+              </Link>
+            </DropdownMenuItem>
+             <DropdownMenuItem asChild>
+              <Link href="/dashboard/profile">
+                <UserIcon className="mr-2 h-4 w-4" />
+                <span>My Profile</span>
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <LogOut className="mr-2 h-4 w-4" />
+              <span>Logout</span>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+    )
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -158,18 +218,7 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
-          {isAuthenticated ? (
-             <Button href="/dashboard">Dashboard</Button>
-          ) : (
-            <>
-              <Button href="/login" variant="ghost">
-                Log In
-              </Button>
-              <Button href="/register">
-                Sign Up
-              </Button>
-            </>
-          )}
+          <AuthAction />
         </div>
       </div>
     </header>

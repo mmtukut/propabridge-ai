@@ -1,3 +1,4 @@
+
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
@@ -35,6 +36,9 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  env: {
+    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: 'AIzaSyDxojbk9a5fjBxnLuBuT8iCse5hO4FBNHc',
   },
 };
 
