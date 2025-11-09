@@ -11,10 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import {
-  Card,
-  CardContent,
-} from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -22,35 +19,44 @@ import {
   MapPin,
   Bed,
   Bath,
-  CheckCircle,
+  ShieldCheck,
   LayoutGrid,
   List,
   Map,
-  ShieldCheck,
-  Star,
   Zap,
   TrendingUp,
   Bookmark,
-  ChevronDown
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { cn } from '@/lib/utils';
 
 type Property = {
-    id: string;
-    imageId: string;
-    type: string;
-    location: string;
-    price: string;
-    bedrooms: number;
-    bathrooms: number;
-    verified: boolean;
-    matchScore: number;
+  id: string;
+  imageId: string;
+  type: string;
+  location: string;
+  price: string;
+  bedrooms: number;
+  bathrooms: number;
+  area: number;
+  verified: boolean;
+  matchScore: number;
+  description: string;
 };
 
-const amenities = ["Parking", "24/7 Power", "Security", "Pool", "Gym", "Generator", "Garden", "Serviced"];
+const amenities = [
+  'Parking',
+  '24/7 Power',
+  'Security',
+  'Pool',
+  'Gym',
+  'Generator',
+  'Garden',
+  'Serviced',
+];
 
-function PropertyCard({ property }: { property: Property }) {
+function PropertyCardGrid({ property }: { property: Property }) {
   const image = PlaceHolderImages.find((img) => img.id === property.imageId);
 
   return (
@@ -83,12 +89,77 @@ function PropertyCard({ property }: { property: Property }) {
           </p>
           <div className="flex items-center justify-between text-sm pt-2">
             <div className="flex items-center gap-3">
-              <span className="flex items-center gap-1.5"><Bed size={16} /> {property.bedrooms}</span>
-              <span className="flex items-center gap-1.5"><Bath size={16} /> {property.bathrooms}</span>
+              <span className="flex items-center gap-1.5">
+                <Bed size={16} /> {property.bedrooms}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Bath size={16} /> {property.bathrooms}
+              </span>
             </div>
-            <p className="font-bold text-primary text-lg">{property.price}<span className="text-xs font-normal text-muted-foreground">/yr</span></p>
+            <p className="font-bold text-primary text-lg">
+              {property.price}
+              <span className="text-xs font-normal text-muted-foreground">/yr</span>
+            </p>
           </div>
         </CardContent>
+      </Link>
+    </Card>
+  );
+}
+
+function PropertyCardList({ property }: { property: Property }) {
+  const image = PlaceHolderImages.find((img) => img.id === property.imageId);
+
+  return (
+    <Card className="bg-card border border-border/50 rounded-2xl overflow-hidden transition-all duration-300 ease-in-out hover:border-primary/50 hover:shadow-glow-primary w-full">
+      <Link href={`/property/${property.id}`} className="block">
+        <div className="flex flex-col md:flex-row">
+          <div className="relative md:w-1/3 h-56 md:h-auto">
+            {image && (
+              <Image
+                src={image.imageUrl}
+                alt={image.description}
+                fill
+                className="object-cover"
+                data-ai-hint={image.imageHint}
+              />
+            )}
+            {property.verified && (
+              <div className="absolute top-3 left-3 bg-primary/80 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                <ShieldCheck size={14} />
+                Verified
+              </div>
+            )}
+          </div>
+          <CardContent className="p-6 flex-1 space-y-3">
+            <div className="flex justify-between items-start">
+              <h3 className="font-bold text-xl">{property.type}</h3>
+              <div className="bg-background/80 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-sm font-bold">
+                {property.matchScore}% Match
+              </div>
+            </div>
+            <p className="text-muted-foreground text-sm flex items-center gap-2">
+              <MapPin size={14} /> {property.location}
+            </p>
+            <p className="text-muted-foreground text-sm line-clamp-2">
+              {property.description}
+            </p>
+            <div className="flex items-center gap-4 text-sm pt-2">
+              <span className="flex items-center gap-1.5"><Bed size={16} /> {property.bedrooms} beds</span>
+              <span className="flex items-center gap-1.5"><Bath size={16} /> {property.bathrooms} baths</span>
+              <span className="flex items-center gap-1.5"><Map size={16} /> {property.area} m²</span>
+            </div>
+             <div className="flex items-end justify-between pt-4">
+              <div>
+                {/* Additional info can go here */}
+              </div>
+              <p className="font-bold text-primary text-2xl">
+                {property.price}
+                <span className="text-sm font-normal text-muted-foreground">/yr</span>
+              </p>
+            </div>
+          </CardContent>
+        </div>
       </Link>
     </Card>
   );
@@ -98,15 +169,22 @@ export default function SearchPage() {
   const [priceRange, setPriceRange] = useState([1000000, 10000000]);
   const [properties, setProperties] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);
+  const [viewMode, setViewMode] = useState<'grid' | 'list' | 'map'>('grid');
 
   useEffect(() => {
     const fetchProperties = async () => {
       try {
         const res = await fetch('/api/search');
         const data = await res.json();
-        setProperties(data.results);
+        // Add description and area to the placeholder data
+        const detailedProperties = data.results.map((p: any) => ({
+          ...p,
+          description: "A stunning and newly built property boasting of spacious rooms, a fully fitted kitchen, 24/7 power supply, and top-notch security. An ideal home for professionals and families.",
+          area: Math.floor(Math.random() * 150) + 100 // Random area between 100-250 m²
+        }))
+        setProperties(detailedProperties);
       } catch (error) {
-        console.error("Failed to fetch properties:", error);
+        console.error('Failed to fetch properties:', error);
       } finally {
         setLoading(false);
       }
@@ -115,12 +193,11 @@ export default function SearchPage() {
     fetchProperties();
   }, []);
 
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
       <section className="relative text-center py-20 md:py-32 overflow-hidden">
-         <div className="absolute inset-0 z-0 bg-gradient-to-b from-background via-background/80 to-transparent bg-opacity-50">
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-background via-background/80 to-transparent bg-opacity-50">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
         </div>
         <div className="container relative z-10">
@@ -133,14 +210,18 @@ export default function SearchPage() {
                 placeholder="e.g., 'A modern 3-bedroom flat in Lekki under ₦3M with 24/7 power'"
                 className="w-full pl-6 pr-32 py-8 text-lg rounded-full bg-card/80 border-2 border-border focus:border-primary focus:ring-primary/50 backdrop-blur-sm"
               />
-              <Button size="lg" className="absolute right-3 top-1/2 -translate-y-1/2 h-14 px-8 shadow-glow-primary hover:shadow-glow-intense">
+              <Button
+                size="lg"
+                className="absolute right-3 top-1/2 -translate-y-1/2 h-14 px-8 shadow-glow-primary hover:shadow-glow-intense"
+              >
                 <Search className="mr-2 h-5 w-5" />
                 Search
               </Button>
             </div>
           </div>
           <p className="mt-6 text-sm text-muted-foreground">
-            ✓ 500+ Verified Properties  •  ✓ 100% Fraud-Free  •  ✓ Zero Hidden Fees
+            ✓ 500+ Verified Properties • ✓ 100% Fraud-Free • ✓ Zero Hidden
+            Fees
           </p>
         </div>
       </section>
@@ -151,7 +232,7 @@ export default function SearchPage() {
           {/* Filters */}
           <Card className="bg-card border-border/50 rounded-2xl p-6 space-y-6">
             <h2 className="text-2xl font-bold font-headline">Filters</h2>
-            
+
             <div>
               <h3 className="font-semibold mb-3">Price Range (/year)</h3>
               <Slider
@@ -171,10 +252,19 @@ export default function SearchPage() {
             <div>
               <h3 className="font-semibold mb-3">Property Type</h3>
               <div className="space-y-2">
-                {["Flat/Apartment", "Detached Duplex", "Semi-Detached Duplex", "Terraced Duplex", "Penthouse"].map(type => (
+                {[
+                  'Flat/Apartment',
+                  'Detached Duplex',
+                  'Semi-Detached Duplex',
+                  'Terraced Duplex',
+                  'Penthouse',
+                ].map((type) => (
                   <div key={type} className="flex items-center space-x-2">
                     <Checkbox id={type} />
-                    <label htmlFor={type} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                    <label
+                      htmlFor={type}
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
                       {type}
                     </label>
                   </div>
@@ -185,16 +275,30 @@ export default function SearchPage() {
             <div>
               <h3 className="font-semibold mb-3">Bedrooms</h3>
               <div className="flex space-x-2">
-                {[1, 2, 3, 4, '5+'].map(num => (
-                  <Button key={num} variant="secondary" size="sm" className="flex-1 rounded-md">{num}</Button>
+                {[1, 2, 3, 4, '5+'].map((num) => (
+                  <Button
+                    key={num}
+                    variant="secondary"
+                    size="sm"
+                    className="flex-1 rounded-md"
+                  >
+                    {num}
+                  </Button>
                 ))}
               </div>
             </div>
-             <div>
+            <div>
               <h3 className="font-semibold mb-3">Bathrooms</h3>
               <div className="flex space-x-2">
-                {[1, 2, 3, 4, '5+'].map(num => (
-                  <Button key={num} variant="secondary" size="sm" className="flex-1 rounded-md">{num}</Button>
+                {[1, 2, 3, 4, '5+'].map((num) => (
+                  <Button
+                    key={num}
+                    variant="secondary"
+                    size="sm"
+                    className="flex-1 rounded-md"
+                  >
+                    {num}
+                  </Button>
                 ))}
               </div>
             </div>
@@ -202,10 +306,13 @@ export default function SearchPage() {
             <div>
               <h3 className="font-semibold mb-3">Amenities</h3>
               <div className="grid grid-cols-2 gap-2">
-                {amenities.map(amenity => (
+                {amenities.map((amenity) => (
                   <div key={amenity} className="flex items-center space-x-2">
                     <Checkbox id={amenity} />
-                    <label htmlFor={amenity} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                    <label
+                      htmlFor={amenity}
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
                       {amenity}
                     </label>
                   </div>
@@ -213,30 +320,44 @@ export default function SearchPage() {
               </div>
             </div>
 
-             <div className="flex items-center space-x-2 pt-4">
-                <Checkbox id="verified-only" defaultChecked />
-                <label htmlFor="verified-only" className="text-sm font-bold leading-none text-primary">
-                    Verified Listings Only
-                </label>
+            <div className="flex items-center space-x-2 pt-4">
+              <Checkbox id="verified-only" defaultChecked />
+              <label
+                htmlFor="verified-only"
+                className="text-sm font-bold leading-none text-primary"
+              >
+                Verified Listings Only
+              </label>
             </div>
           </Card>
 
           {/* AI Insights */}
           <Card className="bg-card border-border/50 rounded-2xl p-6 space-y-4">
-            <h3 className="font-headline text-xl font-bold text-glow">AI Market Insights</h3>
+            <h3 className="font-headline text-xl font-bold text-glow">
+              AI Market Insights
+            </h3>
             <div className="space-y-3">
-               <div className="flex items-start gap-3 text-sm">
+              <div className="flex items-start gap-3 text-sm">
                 <TrendingUp className="w-5 h-5 mt-0.5 text-primary" />
-                <p className="text-muted-foreground">Properties in Lekki Phase 1 are <span className="font-bold text-foreground">12% below</span> market average.</p>
+                <p className="text-muted-foreground">
+                  Properties in Lekki Phase 1 are{' '}
+                  <span className="font-bold text-foreground">
+                    12% below
+                  </span>{' '}
+                  market average.
+                </p>
               </div>
               <div className="flex items-start gap-3 text-sm">
                 <Zap className="w-5 h-5 mt-0.5 text-primary" />
-                <p className="text-muted-foreground"><span className="font-bold text-foreground">3 properties</span> matching your criteria were listed in the past 24 hours.</p>
+                <p className="text-muted-foreground">
+                  <span className="font-bold text-foreground">3 properties</span>{' '}
+                  matching your criteria were listed in the past 24 hours.
+                </p>
               </div>
             </div>
           </Card>
-          
-           {/* Saved Searches */}
+
+          {/* Saved Searches */}
           <Card className="bg-card border-border/50 rounded-2xl p-6 space-y-4">
             <h3 className="font-headline text-xl font-bold text-glow flex items-center">
               <Bookmark className="mr-2" /> Saved Searches
@@ -244,14 +365,18 @@ export default function SearchPage() {
             <div className="text-sm text-muted-foreground text-center py-4">
               You have no saved searches.
             </div>
-            <Button variant="ghost" className="w-full">Create new search</Button>
+            <Button variant="ghost" className="w-full">
+              Create new search
+            </Button>
           </Card>
         </aside>
 
         {/* Search Results */}
         <main className="md:col-span-3">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold">Showing {properties.length} properties</h2>
+            <h2 className="text-xl font-semibold">
+              Showing {properties.length} properties
+            </h2>
             <div className="flex items-center gap-4">
               <Select defaultValue="best-match">
                 <SelectTrigger className="w-[180px] rounded-full">
@@ -265,26 +390,64 @@ export default function SearchPage() {
                 </SelectContent>
               </Select>
               <div className="bg-secondary p-1 rounded-full flex items-center">
-                <Button variant="primary" size="icon" className="w-9 h-9 rounded-full"><LayoutGrid /></Button>
-                <Button variant="ghost" size="icon" className="w-9 h-9 rounded-full"><List /></Button>
-                <Button variant="ghost" size="icon" className="w-9 h-9 rounded-full"><Map /></Button>
+                <Button
+                  variant={viewMode === 'grid' ? 'default' : 'ghost'}
+                  size="icon"
+                  className="w-9 h-9 rounded-full"
+                  onClick={() => setViewMode('grid')}
+                >
+                  <LayoutGrid />
+                </Button>
+                <Button
+                  variant={viewMode === 'list' ? 'default' : 'ghost'}
+                  size="icon"
+                  className="w-9 h-9 rounded-full"
+                  onClick={() => setViewMode('list')}
+                >
+                  <List />
+                </Button>
+                <Button
+                  variant={viewMode === 'map' ? 'default' : 'ghost'}
+                  size="icon"
+                  className="w-9 h-9 rounded-full"
+                  onClick={() => setViewMode('map')}
+                >
+                  <Map />
+                </Button>
               </div>
             </div>
           </div>
-            
-            {loading ? (
-                <p>Loading properties...</p>
-            ) : (
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                    {properties.map(prop => (
-                        <PropertyCard key={prop.id} property={prop} />
-                    ))}
-                </div>
-            )}
 
+          {loading ? (
+            <p>Loading properties...</p>
+          ) : (
+            <>
+              {viewMode === 'grid' && (
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                  {properties.map((prop) => (
+                    <PropertyCardGrid key={prop.id} property={prop} />
+                  ))}
+                </div>
+              )}
+               {viewMode === 'list' && (
+                <div className="space-y-6">
+                  {properties.map((prop) => (
+                    <PropertyCardList key={prop.id} property={prop} />
+                  ))}
+                </div>
+              )}
+               {viewMode === 'map' && (
+                <Card className="bg-card border-border/50 rounded-2xl p-6 h-[600px] flex items-center justify-center">
+                    <p className="text-muted-foreground">Map view coming soon...</p>
+                </Card>
+              )}
+            </>
+          )}
 
           <div className="text-center mt-12">
-            <Button variant="secondary" size="lg" className="rounded-full">Load More Properties</Button>
+            <Button variant="secondary" size="lg" className="rounded-full">
+              Load More Properties
+            </Button>
           </div>
         </main>
       </div>

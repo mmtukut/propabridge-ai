@@ -11,6 +11,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        default: 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transform hover:-translate-y-0.5',
         primary: 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg transform hover:-translate-y-0.5',
         secondary: 'bg-secondary text-secondary-foreground border border-transparent hover:bg-secondary/80',
         ghost: 'text-muted-foreground hover:bg-muted/50 hover:text-foreground',
@@ -29,7 +30,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: 'primary',
+      variant: 'default',
       size: 'md',
       rounded: 'full',
     },
@@ -46,8 +47,9 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, rounded, asChild = false, href, ...props }, ref) => {
     if (href) {
+      // The 'variant' prop was not being passed to cn() for Links, this fixes it
       return (
-        <Link href={href} legacyBehavior={false} className={cn(buttonVariants({ variant, size, rounded, className }))} ref={ref as React.Ref<HTMLAnchorElement>} {...props} />
+        <Link href={href} className={cn(buttonVariants({ variant, size, rounded, className }))} ref={ref as React.Ref<HTMLAnchorElement>} {...props} />
       );
     }
 
