@@ -54,7 +54,8 @@ const navLinks = [
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // This would come from a real auth context
+  // This is a mock authentication state. In a real app, you'd use a context or a library like next-auth.
+  const [isAuthenticated, setIsAuthenticated] = useState(true); 
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
