@@ -33,59 +33,24 @@ import {
   Bookmark,
   ChevronDown
 } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-const propertyPlaceholder = [
-  {
-    id: "prop-1",
-    imageId: "property-1",
-    type: "3-Bedroom Detached Duplex",
-    location: "Lekki Phase 1, Lagos",
-    price: "₦5,500,000",
-    bedrooms: 3,
-    bathrooms: 4,
-    verified: true,
-    matchScore: 95
-  },
-  {
-    id: "prop-2",
-    imageId: "property-2",
-    type: "4-Bedroom Semi-Detached Duplex",
-    location: "Maitama, Abuja",
-    price: "₦8,000,000",
-    bedrooms: 4,
-    bathrooms: 5,
-    verified: true,
-    matchScore: 92
-  },
-  {
-    id: "prop-3",
-    imageId: "property-3",
-    type: "2-Bedroom Luxury Apartment",
-    location: "Ikoyi, Lagos",
-    price: "₦7,200,000",
-    bedrooms: 2,
-    bathrooms: 3,
-    verified: true,
-    matchScore: 88
-  },
-  {
-    id: "prop-4",
-    imageId: "hero",
-    type: "5-Bedroom Villa",
-    location: "Asokoro, Abuja",
-    price: "₦15,000,000",
-    bedrooms: 5,
-    bathrooms: 6,
-    verified: true,
-    matchScore: 85
-  },
-];
+type Property = {
+    id: string;
+    imageId: string;
+    type: string;
+    location: string;
+    price: string;
+    bedrooms: number;
+    bathrooms: number;
+    verified: boolean;
+    matchScore: number;
+};
 
 const amenities = ["Parking", "24/7 Power", "Security", "Pool", "Gym", "Generator", "Garden", "Serviced"];
 
-function PropertyCard({ property }: { property: typeof propertyPlaceholder[0] }) {
+function PropertyCard({ property }: { property: Property }) {
   const image = PlaceHolderImages.find((img) => img.id === property.imageId);
 
   return (
@@ -131,6 +96,25 @@ function PropertyCard({ property }: { property: typeof propertyPlaceholder[0] })
 
 export default function SearchPage() {
   const [priceRange, setPriceRange] = useState([1000000, 10000000]);
+  const [properties, setProperties] = useState<Property[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        const res = await fetch('/api/search');
+        const data = await res.json();
+        setProperties(data.results);
+      } catch (error) {
+        console.error("Failed to fetch properties:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProperties();
+  }, []);
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -267,7 +251,7 @@ export default function SearchPage() {
         {/* Search Results */}
         <main className="md:col-span-3">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold">Showing {propertyPlaceholder.length} properties</h2>
+            <h2 className="text-xl font-semibold">Showing {properties.length} properties</h2>
             <div className="flex items-center gap-4">
               <Select defaultValue="best-match">
                 <SelectTrigger className="w-[180px] rounded-full">
@@ -287,12 +271,17 @@ export default function SearchPage() {
               </div>
             </div>
           </div>
+            
+            {loading ? (
+                <p>Loading properties...</p>
+            ) : (
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                    {properties.map(prop => (
+                        <PropertyCard key={prop.id} property={prop} />
+                    ))}
+                </div>
+            )}
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-            {propertyPlaceholder.map(prop => (
-              <PropertyCard key={prop.id} property={prop} />
-            ))}
-          </div>
 
           <div className="text-center mt-12">
             <Button variant="secondary" size="lg" className="rounded-full">Load More Properties</Button>

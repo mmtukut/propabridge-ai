@@ -59,3 +59,113 @@ export const popularLocations = [
     href: '/search?location=Ibadan',
   },
 ];
+
+
+export const propertyPlaceholder = [
+  {
+    id: "prop-1",
+    imageId: "property-1",
+    type: "3-Bedroom Detached Duplex",
+    location: "Lekki Phase 1, Lagos",
+    price: "₦5,500,000",
+    bedrooms: 3,
+    bathrooms: 4,
+    verified: true,
+    matchScore: 95
+  },
+  {
+    id: "prop-2",
+    imageId: "property-2",
+    type: "4-Bedroom Semi-Detached Duplex",
+    location: "Maitama, Abuja",
+    price: "₦8,000,000",
+    bedrooms: 4,
+    bathrooms: 5,
+    verified: true,
+    matchScore: 92
+  },
+  {
+    id: "prop-3",
+    imageId: "property-3",
+    type: "2-Bedroom Luxury Apartment",
+    location: "Ikoyi, Lagos",
+    price: "₦7,200,000",
+    bedrooms: 2,
+    bathrooms: 3,
+    verified: true,
+    matchScore: 88
+  },
+  {
+    id: "prop-4",
+    imageId: "hero",
+    type: "5-Bedroom Villa",
+    location: "Asokoro, Abuja",
+    price: "₦15,000,000",
+    bedrooms: 5,
+    bathrooms: 6,
+    verified: true,
+    matchScore: 85
+  },
+];
+
+
+export const propertyDetails = {
+  id: "prop-1",
+  images: ["property-1", "property-2", "property-3", "hero"],
+  type: "3-Bedroom Detached Duplex",
+  location: "Lekki Phase 1, Lagos",
+  price: "5,500,000",
+  bedrooms: 3,
+  bathrooms: 4,
+  area: 250,
+  parking: 2,
+  verified: true,
+  verifiedAt: "July 15, 2024",
+  description: "A stunning and newly built 3-bedroom detached duplex in the heart of Lekki Phase 1. This property boasts of spacious rooms, a fully fitted kitchen, 24/7 power supply, and top-notch security. The serene environment and proximity to major business hubs make it an ideal home for professionals and families.",
+  amenities: ["Parking", "24/7 Power", "Security", "Pool", "Gym", "Serviced"],
+  coordinates: { lat: 6.4474, lng: 3.4723 },
+  landlord: {
+    name: "Mr. Adewale Properties",
+    avatarId: "testimonial-2",
+    propertyCount: 12,
+    response_time: "< 2 hours",
+    rating: 4.9,
+    verified: true
+  },
+  ai_analysis: {
+    market_position: "5% Below Average",
+    price_trend: "+8% YoY",
+    demand_score: 87,
+    insight: "Based on 1,247 comparable properties, this listing is priced competitively. Properties in this area typically rent within 14 days."
+  }
+};
+
+export const similarProperties = [
+  {
+    id: "prop-2",
+    imageId: "property-2",
+    type: "4-Bedroom Semi-Detached Duplex",
+    location: "Maitama, Abuja",
+    price: "₦8,000,000",
+    bedrooms: 4,
+    bathrooms: 5,
+  },
+  {
+    id: "prop-3",
+    imageId: "property-3",
+    type: "2-Bedroom Luxury Apartment",
+    location: "Ikoyi, Lagos",
+    price: "₦7,200,000",
+    bedrooms: 2,
+    bathrooms: 3,
+  },
+  {
+    id: "prop-4",
+    imageId: "hero",
+    type: "5-Bedroom Villa",
+    location: "Asokoro, Abuja",
+    price: "₦15,000,000",
+    bedrooms: 5,
+    bathrooms: 6,
+  },
+];

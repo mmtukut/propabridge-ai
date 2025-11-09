@@ -36,67 +36,49 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
-const property = {
-  id: "prop-1",
-  images: ["property-1", "property-2", "property-3", "hero"],
-  type: "3-Bedroom Detached Duplex",
-  location: "Lekki Phase 1, Lagos",
-  price: "5,500,000",
-  bedrooms: 3,
-  bathrooms: 4,
-  area: 250,
-  parking: 2,
-  verified: true,
-  verifiedAt: "July 15, 2024",
-  description: "A stunning and newly built 3-bedroom detached duplex in the heart of Lekki Phase 1. This property boasts of spacious rooms, a fully fitted kitchen, 24/7 power supply, and top-notch security. The serene environment and proximity to major business hubs make it an ideal home for professionals and families.",
-  amenities: ["Parking", "24/7 Power", "Security", "Pool", "Gym", "Serviced"],
-  coordinates: { lat: 6.4474, lng: 3.4723 },
+
+type Property = {
+  id: string;
+  images: string[];
+  type: string;
+  location: string;
+  price: string;
+  bedrooms: number;
+  bathrooms: number;
+  area: number;
+  parking: number;
+  verified: boolean;
+  verifiedAt: string;
+  description: string;
+  amenities: string[];
+  coordinates: { lat: number; lng: number };
   landlord: {
-    name: "Mr. Adewale Properties",
-    avatarId: "testimonial-2",
-    propertyCount: 12,
-    response_time: "< 2 hours",
-    rating: 4.9,
-    verified: true
-  },
+    name: string;
+    avatarId: string;
+    propertyCount: number;
+    response_time: string;
+    rating: number;
+    verified: boolean;
+  };
   ai_analysis: {
-    market_position: "5% Below Average",
-    price_trend: "+8% YoY",
-    demand_score: 87,
-    insight: "Based on 1,247 comparable properties, this listing is priced competitively. Properties in this area typically rent within 14 days."
-  }
+    market_position: string;
+    price_trend: string;
+    demand_score: number;
+    insight: string;
+  };
 };
 
-const similarProperties = [
-  {
-    id: "prop-2",
-    imageId: "property-2",
-    type: "4-Bedroom Semi-Detached Duplex",
-    location: "Maitama, Abuja",
-    price: "₦8,000,000",
-    bedrooms: 4,
-    bathrooms: 5,
-  },
-  {
-    id: "prop-3",
-    imageId: "property-3",
-    type: "2-Bedroom Luxury Apartment",
-    location: "Ikoyi, Lagos",
-    price: "₦7,200,000",
-    bedrooms: 2,
-    bathrooms: 3,
-  },
-  {
-    id: "prop-4",
-    imageId: "hero",
-    type: "5-Bedroom Villa",
-    location: "Asokoro, Abuja",
-    price: "₦15,000,000",
-    bedrooms: 5,
-    bathrooms: 6,
-  },
-];
+type SimilarProperty = {
+  id: string;
+  imageId: string;
+  type: string;
+  location: string;
+  price: string;
+  bedrooms: number;
+  bathrooms: number;
+};
 
 
 function SpecItem({ icon: Icon, value, label }: { icon: React.ElementType, value: string | number, label: string }) {
@@ -109,7 +91,7 @@ function SpecItem({ icon: Icon, value, label }: { icon: React.ElementType, value
   )
 }
 
-function MiniPropertyCard({ property }: { property: typeof similarProperties[0] }) {
+function MiniPropertyCard({ property }: { property: SimilarProperty }) {
   const image = PlaceHolderImages.find((img) => img.id === property.imageId);
   return (
     <Card className="bg-card/50 border-border/50 rounded-xl overflow-hidden">
@@ -129,6 +111,37 @@ function MiniPropertyCard({ property }: { property: typeof similarProperties[0] 
 
 
 export default function PropertyDetailPage({ params }: { params: { id: string } }) {
+  const [property, setProperty] = useState<Property | null>(null);
+  const [similarProperties, setSimilarProperties] = useState<SimilarProperty[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProperty = async () => {
+      try {
+        const res = await fetch(`/api/listings/${params.id}`);
+        const data = await res.json();
+        setProperty(data.listing);
+        setSimilarProperties(data.similar);
+      } catch (error) {
+        console.error("Failed to fetch property details:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (params.id) {
+      fetchProperty();
+    }
+  }, [params.id]);
+
+  if (loading) {
+    return <div className="min-h-screen bg-background text-foreground flex items-center justify-center">Loading property details...</div>;
+  }
+
+  if (!property) {
+    return <div className="min-h-screen bg-background text-foreground flex items-center justify-center">Property not found.</div>;
+  }
+
   const primaryImage = PlaceHolderImages.find(p => p.id === property.images[0]);
   const landlordAvatar = PlaceHolderImages.find(p => p.id === property.landlord.avatarId);
   const thumbnailImages = property.images.map(id => PlaceHolderImages.find(p => p.id === id)).filter(Boolean);
