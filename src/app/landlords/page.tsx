@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Check, Zap, DollarSign, Users, BarChart, Shield } from 'lucide-react';
@@ -48,7 +49,7 @@ export default function ForLandlordsPage() {
             Access pre-verified tenants, optimize your rental income with AI, and fill vacancies faster than ever.
           </p>
           <div className="mt-10">
-            <Button href="/landlords/new" size="xl" rounded="full" className="shadow-glow-primary hover:shadow-glow-intense">
+            <Button href="/landlords/new" size="xl" className="shadow-glow-primary hover:shadow-glow-intense">
               List Your Property for Free
             </Button>
           </div>
@@ -98,7 +99,7 @@ export default function ForLandlordsPage() {
                 </div>
             </div>
              <div className="mt-16">
-                <Button href="/landlords/new" size="lg" variant="secondary" rounded="full">
+                <Button href="/landlords/new" size="lg" variant="secondary">
                     Get Started Now
                 </Button>
             </div>
@@ -107,7 +108,7 @@ export default function ForLandlordsPage() {
 
       {/* Final CTA */}
       <section className="pb-20 lg:pb-32">
-        <div className="container max-w-4xl mx-auto text-center bg-card/50 border border-border/50 p-10 lg-p-20 rounded-3xl relative overflow-hidden">
+        <div className="container max-w-4xl mx-auto text-center bg-card/50 border border-border/50 p-10 lg:p-20 rounded-3xl relative overflow-hidden">
             <div className="absolute inset-0 z-0 opacity-40">
                 <div className="absolute top-0 left-0 w-96 h-96 bg-primary/20 rounded-full blur-[150px]" />
                 <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[150px]" />

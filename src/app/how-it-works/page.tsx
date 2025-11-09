@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Bot, ShieldCheck, Database, Search, MessageSquare, Key, ArrowDown } from 'lucide-react';
@@ -81,7 +82,7 @@ export default function HowItWorksPage() {
             </div>
           </div>
           <div className="text-center mt-12">
-            <Button href="/search" size="lg" rounded="full" className="shadow-glow-primary">Start Your Search</Button>
+            <Button href="/search" size="lg" className="shadow-glow-primary">Start Your Search</Button>
           </div>
         </div>
       </section>
@@ -109,7 +110,7 @@ export default function HowItWorksPage() {
             </div>
           </div>
           <div className="text-center mt-12">
-            <Button href="/landlords/new" size="lg" rounded="full" className="shadow-glow-primary">List Your Property</Button>
+            <Button href="/landlords/new" size="lg" className="shadow-glow-primary">List Your Property</Button>
           </div>
         </div>
       </section>

@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Check, Shield, Search, MessageSquare, Home, Zap, Star, Sparkles } from 'lucide-react';
@@ -44,7 +45,7 @@ export default function ForRentersPage() {
             Use the power of AI to search verified properties, connect directly with landlords, and move in without the stress.
           </p>
           <div className="mt-10">
-            <Button href="/search" size="xl" rounded="full" className="shadow-glow-primary hover:shadow-glow-intense">
+            <Button href="/search" size="xl" className="shadow-glow-primary hover:shadow-glow-intense">
               Start Your AI-Powered Search
             </Button>
           </div>

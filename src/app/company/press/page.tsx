@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Download, Mail } from 'lucide-react';
@@ -54,14 +55,14 @@ export default function PressPage() {
                 <Card className="bg-card/50 border-border/50 rounded-2xl p-8 flex flex-col justify-center items-center text-center">
                     <h2 className="text-3xl font-bold font-headline mb-4">Media Kit</h2>
                     <p className="text-muted-foreground mb-6">Download our official logo, brand guidelines, and leadership headshots.</p>
-                    <Button size="lg" rounded="full">
+                    <Button size="lg">
                         <Download className="mr-2"/> Download Media Kit (.zip)
                     </Button>
                 </Card>
                  <Card className="bg-card/50 border-border/50 rounded-2xl p-8 flex flex-col justify-center items-center text-center">
                     <h2 className="text-3xl font-bold font-headline mb-4">Press Contact</h2>
                     <p className="text-muted-foreground mb-6">For all media inquiries, please contact our communications team.</p>
-                    <Button href="mailto:press@propabridge.ng" size="lg" rounded="full" variant="secondary">
+                    <Button href="mailto:press@propabridge.ng" size="lg" variant="secondary">
                         <Mail className="mr-2"/> press@propabridge.ng
                     </Button>
                 </Card>

@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -105,7 +106,7 @@ export function Header() {
                     )
                   ))}
                   <div className="flex flex-col space-y-3 pt-6">
-                    <Button href="/landlords" variant="secondary" size="lg">
+                    <Button href="/landlords/new" variant="secondary" size="lg">
                       List Your Property
                     </Button>
                     <Button href="/search" size="lg">

@@ -1,5 +1,7 @@
+
 'use client';
 
+import { useState } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
@@ -16,7 +18,8 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card } from "@/components/ui/card"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Mail, Phone, MapPin, CheckCircle } from "lucide-react"
+import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name is required."),
@@ -26,6 +29,7 @@ const formSchema = z.object({
 })
 
 export default function ContactPage() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -38,6 +42,7 @@ export default function ContactPage() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values)
     // Here you would typically send the form data to your backend
+    setIsSubmitted(true);
   }
 
   return (
@@ -62,80 +67,92 @@ export default function ContactPage() {
         <div className="container max-w-7xl">
             <div className="grid md:grid-cols-5 gap-12 lg:gap-16">
                 <div className="md:col-span-3">
-                    <Card className="bg-card/50 border-border/50 rounded-2xl p-8 backdrop-blur-sm">
-                        <h2 className="text-3xl font-bold font-headline mb-8">Send us a Message</h2>
-                         <Form {...form}>
-                          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                            <FormField
-                              control={form.control}
-                              name="fullName"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>Full Name</FormLabel>
-                                  <FormControl>
-                                    <Input placeholder="John Doe" {...field} className="bg-secondary/50 rounded-lg h-12" />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                             <FormField
-                              control={form.control}
-                              name="email"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>Email Address</FormLabel>
-                                  <FormControl>
-                                    <Input placeholder="john.doe@example.com" {...field} className="bg-secondary/50 rounded-lg h-12"/>
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                             <FormField
-                                control={form.control}
-                                name="inquiryType"
-                                render={({ field }) => (
+                    <Card className={cn("bg-card/50 border-border/50 rounded-2xl p-8 backdrop-blur-sm transition-all duration-500", isSubmitted && "min-h-[600px]")}>
+                        {!isSubmitted ? (
+                          <>
+                            <h2 className="text-3xl font-bold font-headline mb-8">Send us a Message</h2>
+                             <Form {...form}>
+                              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                                <FormField
+                                  control={form.control}
+                                  name="fullName"
+                                  render={({ field }) => (
                                     <FormItem>
-                                    <FormLabel>Inquiry Type</FormLabel>
-                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                        <FormControl>
-                                        <SelectTrigger className="bg-secondary/50 rounded-lg h-12">
-                                            <SelectValue placeholder="Select a reason for contacting us" />
-                                        </SelectTrigger>
-                                        </FormControl>
-                                        <SelectContent>
-                                            <SelectItem value="enterprise">Enterprise & Government Solutions</SelectItem>
-                                            <SelectItem value="partnership">Partnership Opportunities</SelectItem>
-                                            <SelectItem value="support">Support</SelectItem>
-                                            <SelectItem value="press">Press & Media</SelectItem>
-                                            <SelectItem value="other">Other</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                    <FormMessage />
+                                      <FormLabel>Full Name</FormLabel>
+                                      <FormControl>
+                                        <Input placeholder="John Doe" {...field} className="bg-secondary/50 rounded-lg h-12" />
+                                      </FormControl>
+                                      <FormMessage />
                                     </FormItem>
-                                )}
+                                  )}
                                 />
-                            <FormField
-                              control={form.control}
-                              name="message"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel>Message</FormLabel>
-                                  <FormControl>
-                                    <Textarea
-                                      placeholder="Tell us a little more about how we can help..."
-                                      className="resize-none bg-secondary/50 rounded-lg min-h-[150px]"
-                                      {...field}
+                                 <FormField
+                                  control={form.control}
+                                  name="email"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel>Email Address</FormLabel>
+                                      <FormControl>
+                                        <Input placeholder="john.doe@example.com" {...field} className="bg-secondary/50 rounded-lg h-12"/>
+                                      </FormControl>
+                                      <FormMessage />
+                                    </FormItem>
+                                  )}
+                                />
+                                 <FormField
+                                    control={form.control}
+                                    name="inquiryType"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                        <FormLabel>Inquiry Type</FormLabel>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                            <FormControl>
+                                            <SelectTrigger className="bg-secondary/50 rounded-lg h-12">
+                                                <SelectValue placeholder="Select a reason for contacting us" />
+                                            </SelectTrigger>
+                                            </FormControl>
+                                            <SelectContent>
+                                                <SelectItem value="enterprise">Enterprise & Government Solutions</SelectItem>
+                                                <SelectItem value="partnership">Partnership Opportunities</SelectItem>
+                                                <SelectItem value="support">Support</SelectItem>
+                                                <SelectItem value="press">Press & Media</SelectItem>
+                                                <SelectItem value="other">Other</SelectItem>
+                                            </SelectContent>
+                                        </Select>
+                                        <FormMessage />
+                                        </FormItem>
+                                    )}
                                     />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            <Button type="submit" size="lg" className="w-full shadow-glow-primary hover:shadow-glow-intense">Submit Inquiry</Button>
-                          </form>
-                        </Form>
+                                <FormField
+                                  control={form.control}
+                                  name="message"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel>Message</FormLabel>
+                                      <FormControl>
+                                        <Textarea
+                                          placeholder="Tell us a little more about how we can help..."
+                                          className="resize-none bg-secondary/50 rounded-lg min-h-[150px]"
+                                          {...field}
+                                        />
+                                      </FormControl>
+                                      <FormMessage />
+                                    </FormItem>
+                                  )}
+                                />
+                                <Button type="submit" size="lg" className="w-full shadow-glow-primary hover:shadow-glow-intense">Submit Inquiry</Button>
+                              </form>
+                            </Form>
+                          </>
+                        ) : (
+                          <div className="flex flex-col items-center justify-center h-full text-center py-20">
+                              <CheckCircle className="w-24 h-24 text-primary mb-6" />
+                              <h2 className="text-3xl font-bold font-headline mb-4">Thank You!</h2>
+                              <p className="text-lg text-muted-foreground max-w-md mx-auto">
+                                Your message has been sent. Our team will review it and get back to you within 24-48 hours.
+                              </p>
+                          </div>
+                        )}
                     </Card>
                 </div>
                 <div className="md:col-span-2 space-y-8">
@@ -176,9 +193,6 @@ export default function ContactPage() {
                         <h3 className="text-2xl font-bold font-headline mb-6">Connect with Us</h3>
                          <div className="flex space-x-4">
                             <Button variant="secondary" size="icon" asChild><a href="#"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" fill="currentColor"/></svg></a></Button>
-                            <Button variant="secondary" size="icon" asChild><a href="#">...</a></Button>
-                            <Button variant="secondary" size="icon" asChild><a href="#">...</a></Button>
-                            <Button variant="secondary" size="icon" asChild><a href="#">...</a></Button>
                          </div>
                     </Card>
                 </div>
