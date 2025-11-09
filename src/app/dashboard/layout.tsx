@@ -24,6 +24,8 @@ import {
   BarChart,
   LogOut,
   Building2,
+  Shield,
+  Bookmark,
 } from 'lucide-react';
 import { Logo, LogoIcon } from '@/components/branding/Logo';
 import { usePathname } from 'next/navigation';
@@ -72,17 +74,17 @@ export default function DashboardLayout({
 
             {/* Common Items */}
             <SidebarGroup>
-              <SidebarMenuItem>
+               <SidebarMenuItem>
                 <SidebarMenuButton
-                  href="/dashboard/profile"
-                  isActive={isActive('/dashboard/profile')}
-                  tooltip="Profile"
+                  href="/search"
+                  isActive={isActive('/search')}
+                  tooltip="New Search"
                 >
-                  <User />
-                  <span>Profile</span>
+                  <Search />
+                  <span>New Search</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-              <SidebarMenuItem>
+               <SidebarMenuItem>
                 <SidebarMenuButton
                   href="/dashboard/saved-properties"
                   isActive={isActive('/dashboard/saved-properties')}
@@ -92,14 +94,14 @@ export default function DashboardLayout({
                   <span>Saved Properties</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-               <SidebarMenuItem>
+              <SidebarMenuItem>
                 <SidebarMenuButton
-                  href="/search"
-                  isActive={isActive('/search')}
-                  tooltip="New Search"
+                  href="/dashboard/saved-searches"
+                  isActive={isActive('/dashboard/saved-searches')}
+                  tooltip="Saved Searches"
                 >
-                  <Search />
-                  <span>New Search</span>
+                  <Bookmark />
+                  <span>Saved Searches</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarGroup>
@@ -139,6 +141,29 @@ export default function DashboardLayout({
                   </SidebarMenuItem>
               </SidebarGroup>
             )}
+
+             <SidebarGroup>
+                <SidebarMenuItem>
+                    <SidebarMenuButton
+                    href="/dashboard/profile"
+                    isActive={isActive('/dashboard/profile')}
+                    tooltip="Profile Settings"
+                    >
+                    <User />
+                    <span>Profile Settings</span>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                    <SidebarMenuButton
+                    href="/dashboard/security"
+                    isActive={isActive('/dashboard/security')}
+                    tooltip="Security"
+                    >
+                    <Shield />
+                    <span>Security</span>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+            </SidebarGroup>
 
           </SidebarMenu>
         </SidebarContent>
