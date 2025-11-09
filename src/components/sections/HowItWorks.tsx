@@ -41,7 +41,7 @@ export function HowItWorks() {
         </div>
       <div className="container max-w-7xl relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">Find Your Solution in 3 Steps</h2>
+          <h2 className="text-4xl md:text-5xl font-bold font-headline">Find Your Solution in 3 Steps</h2>
           <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">We build foundational infrastructure for every participant in the real estate ecosystem.</p>
         </div>
 

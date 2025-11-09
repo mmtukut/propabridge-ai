@@ -39,7 +39,7 @@ export default function PressPage() {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
         </div>
         <div className="container relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold font-headline text-glow">
+          <h1 className="text-4xl md:text-6xl font-bold font-headline">
             Press & Media
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -73,7 +73,7 @@ export default function PressPage() {
       {/* Press Releases */}
       <section className="pb-20 lg:pb-24">
         <div className="container max-w-4xl">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow text-center mb-16">Press Releases</h2>
+            <h2 className="text-4xl md:text-5xl font-bold font-headline text-center mb-16">Press Releases</h2>
             <Card className="bg-card/50 border-border/50 rounded-2xl">
                  <div className="divide-y divide-border/50">
                     {pressReleases.map((release, index) => (
@@ -96,7 +96,7 @@ export default function PressPage() {
        {/* As Seen In */}
       <section className="pb-20 lg:pb-32">
         <div className="container max-w-5xl text-center">
-          <h2 className="text-3xl font-bold font-headline text-glow mb-12">As Featured In</h2>
+          <h2 className="text-3xl font-bold font-headline mb-12">As Featured In</h2>
           <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-60">
             {featuredIn.map(org => (
               <a key={org.name} href={org.href} target="_blank" rel="noopener noreferrer">

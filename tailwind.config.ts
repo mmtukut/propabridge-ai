@@ -72,9 +72,6 @@ export default {
         'glow-primary': '0 0 20px hsla(151, 83%, 46%, 0.3), 0 0 40px hsla(151, 83%, 46%, 0.15)',
         'glow-intense': '0 0 30px hsla(151, 83%, 46%, 0.5), 0 0 60px hsla(151, 83%, 46%, 0.25)',
       },
-      textShadow: {
-        glow: '0 0 20px hsla(151, 83%, 46%, 0.6), 0 2px 4px hsla(0, 0%, 0%, 0.8)',
-      },
       keyframes: {
         'accordion-down': {
           from: {
@@ -101,13 +98,5 @@ export default {
   },
   plugins: [
     require('tailwindcss-animate'),
-    function ({ addUtilities }: { addUtilities: any }) {
-      const newUtilities = {
-        '.text-glow': {
-          textShadow: '0 0 20px hsla(151, 83%, 46%, 0.6), 0 2px 4px hsla(0, 0%, 0%, 0.8)',
-        },
-      };
-      addUtilities(newUtilities, ['responsive', 'hover']);
-    },
   ],
 } satisfies Config;

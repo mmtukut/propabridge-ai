@@ -57,7 +57,7 @@ export default function AboutPage() {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
         </div>
         <div className="container relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold font-headline text-glow">
+          <h1 className="text-4xl md:text-6xl font-bold font-headline">
             Building Africa's Infrastructure for Trust in Property
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -74,7 +74,7 @@ export default function AboutPage() {
                 <Image src="https://picsum.photos/seed/about-story/800/1000" alt="Team discussing blueprints" fill className="object-cover" data-ai-hint="team discussion" />
             </div>
             <div className="space-y-6">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">From Problem to Infrastructure</h2>
+                <h2 className="text-4xl md:text-5xl font-bold font-headline">From Problem to Infrastructure</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                     Founded in 2023, Propabridge was born from a simple observation: the largest asset class in Africa is also the least transparent and most fraught with risk. Witnessing billions lost to fraud and millions struggling with inefficient processes, we knew a simple app wouldn't suffice.
                 </p>
@@ -90,7 +90,7 @@ export default function AboutPage() {
       <section className="py-20 lg:py-24 bg-card/20">
         <div className="container max-w-7xl">
             <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">Our Guiding Principles</h2>
+                <h2 className="text-4xl md:text-5xl font-bold font-headline">Our Guiding Principles</h2>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {values.map(value => (
@@ -108,7 +108,7 @@ export default function AboutPage() {
       <section className="py-20 lg:py-24">
         <div className="container max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">Leadership & Vision</h2>
+            <h2 className="text-4xl md:text-5xl font-bold font-headline">Leadership & Vision</h2>
             <p className="mt-4 text-xl text-muted-foreground">
               A blend of credentialed experts in technology, real estate, and social impact.
             </p>
@@ -137,7 +137,7 @@ export default function AboutPage() {
                 <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[150px]" />
             </div>
             <div className="relative z-10">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
                     Join Our Mission
                 </h2>
                 <p className="text-xl text-muted-foreground mb-10">

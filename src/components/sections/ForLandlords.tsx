@@ -20,7 +20,7 @@ export function ForLandlords() {
       <div className="container max-w-7xl">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline">
               For Landlords, Developers & Government
             </h2>
             <p className="text-xl text-muted-foreground">

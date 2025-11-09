@@ -51,7 +51,7 @@ export function Testimonials() {
     <section className="bg-card/20 py-20 lg:py-32">
       <div className="container max-w-7xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">
+          <h2 className="text-4xl md:text-5xl font-bold font-headline">
             Trusted by Leaders, Builders, and Dreamers
           </h2>
         </div>

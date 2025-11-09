@@ -31,7 +31,7 @@ export function Problem() {
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
                     </div>
                     <div className="space-y-8">
-                        <h2 className="text-4xl md:text-5xl font-bold font-headline leading-tight text-glow">
+                        <h2 className="text-4xl md:text-5xl font-bold font-headline leading-tight">
                             The ₦500 Billion Trust Deficit
                         </h2>
                         <p className="text-lg text-muted-foreground leading-relaxed">

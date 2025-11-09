@@ -300,7 +300,7 @@ export default function NewListingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="container max-w-4xl py-20 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold font-headline text-glow text-center mb-4">List Your Property</h1>
+        <h1 className="text-4xl font-bold font-headline text-center mb-4">List Your Property</h1>
         <p className="text-muted-foreground text-lg text-center mb-12">Join thousands of landlords finding verified tenants on Propabridge.</p>
         
         <div className="mb-12">

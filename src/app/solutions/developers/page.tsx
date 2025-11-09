@@ -37,7 +37,7 @@ export default function ForDevelopersPage() {
           <div className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4 border border-primary/20">
             For Developers & Innovators
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold font-headline text-glow">
+          <h1 className="text-4xl md:text-6xl font-bold font-headline">
             Build the Future of Real Estate
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -58,7 +58,7 @@ export default function ForDevelopersPage() {
       <section className="py-20 lg:py-24 bg-card/20">
         <div className="container max-w-7xl">
             <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">Our Developer Platform</h2>
+                <h2 className="text-4xl md:text-5xl font-bold font-headline">Our Developer Platform</h2>
                 <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">A suite of powerful APIs to unlock real estate data for Africa.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
@@ -122,7 +122,7 @@ fetch('https://api.propabridge.ng/v1/intelligence', {
                 <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[150px]" />
             </div>
             <div className="relative z-10">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
                     Start Building Today
                 </h2>
                 <p className="text-xl text-muted-foreground mb-10">

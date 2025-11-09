@@ -50,7 +50,7 @@ export default function HowItWorksPage() {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
         </div>
         <div className="container relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold font-headline text-glow">
+          <h1 className="text-4xl md:text-6xl font-bold font-headline">
             From Search to Keys in 3 Simple Steps
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -63,7 +63,7 @@ export default function HowItWorksPage() {
       <section className="py-20 lg:py-24">
         <div className="container max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">For Renters & Buyers</h2>
+            <h2 className="text-4xl md:text-5xl font-bold font-headline">For Renters & Buyers</h2>
             <p className="mt-4 text-xl text-muted-foreground">Find your next home with confidence and ease.</p>
           </div>
           <div className="relative">
@@ -91,7 +91,7 @@ export default function HowItWorksPage() {
       <section className="py-20 lg:py-24 bg-card/20">
         <div className="container max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">For Landlords & Agents</h2>
+            <h2 className="text-4xl md:text-5xl font-bold font-headline">For Landlords & Agents</h2>
             <p className="mt-4 text-xl text-muted-foreground">Access verified tenants and fill vacancies faster.</p>
           </div>
            <div className="relative">

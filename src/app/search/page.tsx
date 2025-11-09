@@ -209,7 +209,7 @@ export default function SearchPage() {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
         </div>
         <div className="container relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline text-glow">
+          <h1 className="text-4xl md:text-5xl font-bold font-headline">
             Describe Your Perfect Home. AI Does the Rest.
           </h1>
           <div className="mt-8 max-w-3xl mx-auto">
@@ -341,7 +341,7 @@ export default function SearchPage() {
 
           {/* AI Insights */}
           <Card className="bg-card border-border/50 rounded-2xl p-6 space-y-4">
-            <h3 className="font-headline text-xl font-bold text-glow">
+            <h3 className="font-headline text-xl font-bold">
               AI Market Insights
             </h3>
             <div className="space-y-3">
@@ -367,7 +367,7 @@ export default function SearchPage() {
 
           {/* Saved Searches */}
           <Card className="bg-card border-border/50 rounded-2xl p-6 space-y-4">
-            <h3 className="font-headline text-xl font-bold text-glow flex items-center">
+            <h3 className="font-headline text-xl font-bold flex items-center">
               <Bookmark className="mr-2" /> Saved Searches
             </h3>
             <div className="text-sm text-muted-foreground text-center py-4">

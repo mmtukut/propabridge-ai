@@ -52,7 +52,7 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         <Card className="bg-card/50 border-border/50 rounded-2xl p-8 backdrop-blur-sm shadow-xl">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold font-headline text-glow">Welcome Back</h1>
+            <h1 className="text-3xl font-bold font-headline">Welcome Back</h1>
             <p className="text-muted-foreground mt-2">
               Sign in to access your properties and dashboard.
             </p>

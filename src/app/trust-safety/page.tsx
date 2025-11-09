@@ -36,7 +36,7 @@ export default function TrustAndSafetyPage() {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
         </div>
         <div className="container relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold font-headline text-glow">
+          <h1 className="text-4xl md:text-6xl font-bold font-headline">
             Engineered for Trust. Built for Safety.
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -49,7 +49,7 @@ export default function TrustAndSafetyPage() {
       <section className="py-20 lg:py-24 bg-card/20">
         <div className="container max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">Our 4-Stage Verification Process</h2>
+            <h2 className="text-4xl md:text-5xl font-bold font-headline">Our 4-Stage Verification Process</h2>
             <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">Every single listing on Propabridge must pass our rigorous verification before it goes live.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -99,7 +99,7 @@ export default function TrustAndSafetyPage() {
                 <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[150px]" />
             </div>
             <div className="relative z-10">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
                     Experience a Safer Way to Rent
                 </h2>
                 <p className="text-xl text-muted-foreground mb-10">

@@ -37,7 +37,7 @@ export default function ForGovernmentPage() {
           <div className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4 border border-primary/20">
             For Government & Public Sector
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold font-headline text-glow">
+          <h1 className="text-4xl md:text-6xl font-bold font-headline">
             Building Infrastructure for National Development
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -55,7 +55,7 @@ export default function ForGovernmentPage() {
       <section className="py-20 lg:py-24 bg-card/20">
         <div className="container max-w-7xl">
             <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">Public Sector Solutions</h2>
+                <h2 className="text-4xl md:text-5xl font-bold font-headline">Public Sector Solutions</h2>
                 <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">Government-ready technology to modernize land administration and unlock economic potential.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
@@ -80,7 +80,7 @@ export default function ForGovernmentPage() {
                 <img src="https://picsum.photos/seed/gov-case-study/800/1000" alt="Digital map interface" className="w-full h-full object-cover" data-ai-hint="digital map" />
             </div>
             <div className="space-y-6">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">Case Study: Lagos State Land Registry Pilot</h2>
+                <h2 className="text-4xl md:text-5xl font-bold font-headline">Case Study: Lagos State Land Registry Pilot</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                     In a pilot program with the Lagos State Land Registry, Propabridge's AI engine digitized and verified over 100,000 title deeds in 90 days, a task that would have taken an estimated 5 years using manual methods.
                 </p>
@@ -108,7 +108,7 @@ export default function ForGovernmentPage() {
                 <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[150px]" />
             </div>
             <div className="relative z-10">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
                     Partner with Us for a More Transparent Future
                 </h2>
                 <p className="text-xl text-muted-foreground mb-10">

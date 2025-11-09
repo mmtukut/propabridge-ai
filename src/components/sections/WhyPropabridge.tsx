@@ -42,7 +42,7 @@ export function WhyPropabridge() {
       </div>
       <div className="container max-w-7xl relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">Our Foundational Difference</h2>
+          <h2 className="text-4xl md:text-5xl font-bold font-headline">Our Foundational Difference</h2>
           <p className="mt-4 text-xl text-muted-foreground">Why we are the undisputed leader in property technology.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

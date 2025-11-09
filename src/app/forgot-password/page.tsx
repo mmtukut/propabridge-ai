@@ -44,7 +44,7 @@ export default function ForgotPasswordPage() {
           {!isSubmitted ? (
             <>
               <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold font-headline text-glow">Forgot Password?</h1>
+                <h1 className="text-3xl font-bold font-headline">Forgot Password?</h1>
                 <p className="text-muted-foreground mt-2">
                   No problem. Enter your email and we'll send you a reset link.
                 </p>

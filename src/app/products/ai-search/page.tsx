@@ -14,7 +14,7 @@ export default function AISearchProductPage() {
           <div className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4 border border-primary/20">
             For Renters & Buyers
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold font-headline text-glow">
+          <h1 className="text-4xl md:text-6xl font-bold font-headline">
             Propabridge AI Search
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -65,7 +65,7 @@ export default function AISearchProductPage() {
                 <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[150px] animate-pulse-slow animation-delay-2000" />
             </div>
             <div className="relative z-10">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
                     Ready to Experience AI-Powered Property Search?
                 </h2>
                 <p className="text-xl text-muted-foreground mb-10">

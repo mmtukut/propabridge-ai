@@ -55,7 +55,7 @@ export default function CareersPage() {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
         </div>
         <div className="container relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold font-headline text-glow">
+          <h1 className="text-4xl md:text-6xl font-bold font-headline">
             Join Our Mission
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -67,7 +67,7 @@ export default function CareersPage() {
       {/* Open Roles */}
       <section className="py-20 lg:py-24" id="open-roles">
         <div className="container max-w-4xl">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow text-center mb-16">Open Positions</h2>
+            <h2 className="text-4xl md:text-5xl font-bold font-headline text-center mb-16">Open Positions</h2>
             <Card className="bg-card/50 border-border/50 rounded-2xl">
                  <div className="divide-y divide-border/50">
                     {openRoles.map((role, index) => (
@@ -98,7 +98,7 @@ export default function CareersPage() {
       <section className="py-20 lg:py-24 bg-card/20">
         <div className="container max-w-7xl">
             <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">Meet Our Teams</h2>
+                <h2 className="text-4xl md:text-5xl font-bold font-headline">Meet Our Teams</h2>
                 <p className="mt-4 text-xl text-muted-foreground">The innovators and builders behind the infrastructure.</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">

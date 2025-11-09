@@ -38,7 +38,7 @@ export default function ForEnterprisesPage() {
           <div className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4 border border-primary/20">
             For Financial Institutions & Corporates
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold font-headline text-glow">
+          <h1 className="text-4xl md:text-6xl font-bold font-headline">
             De-Risk Your Real Estate Operations
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -56,7 +56,7 @@ export default function ForEnterprisesPage() {
       <section className="py-20 lg:py-24 bg-card/20">
         <div className="container max-w-7xl">
             <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">Enterprise Solutions</h2>
+                <h2 className="text-4xl md:text-5xl font-bold font-headline">Enterprise Solutions</h2>
                 <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">Modular infrastructure to solve your most complex real estate challenges.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
@@ -76,7 +76,7 @@ export default function ForEnterprisesPage() {
       {/* Stats/Impact */}
       <section className="py-20 lg:py-24">
         <div className="container max-w-5xl">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow text-center mb-16">Quantifiable Impact</h2>
+            <h2 className="text-4xl md:text-5xl font-bold font-headline text-center mb-16">Quantifiable Impact</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
                 <Card className="bg-card/50 border-border/50 text-center p-8 rounded-2xl">
                     <p className="text-5xl font-bold text-primary font-mono">95%</p>
@@ -102,7 +102,7 @@ export default function ForEnterprisesPage() {
                 <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[150px]" />
             </div>
             <div className="relative z-10">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
                     Secure and Scale Your Operations
                 </h2>
                 <p className="text-xl text-muted-foreground mb-10">

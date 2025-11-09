@@ -38,7 +38,7 @@ export default function ForRentersPage() {
           <div className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4 border border-primary/20">
             For Renters & Home Buyers
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold font-headline text-glow">
+          <h1 className="text-4xl md:text-6xl font-bold font-headline">
             Find Your Perfect Home, Faster.
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -56,7 +56,7 @@ export default function ForRentersPage() {
       <section className="py-20 lg:py-24 bg-card/20">
         <div className="container max-w-7xl">
             <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow">The Propabridge Advantage</h2>
+                <h2 className="text-4xl md:text-5xl font-bold font-headline">The Propabridge Advantage</h2>
                 <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">We've rebuilt the property search experience around trust and technology.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
@@ -76,7 +76,7 @@ export default function ForRentersPage() {
       {/* How it Works in 3 Steps */}
       <section className="py-20 lg:py-24">
         <div className="container max-w-5xl text-center">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow mb-16">Your Journey in 3 Simple Steps</h2>
+            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-16">Your Journey in 3 Simple Steps</h2>
             <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div className="flex flex-col items-center">
                     <div className="bg-primary text-primary-foreground rounded-full h-16 w-16 flex items-center justify-center text-2xl font-bold font-headline shadow-glow-primary mb-4">1</div>
@@ -105,7 +105,7 @@ export default function ForRentersPage() {
                 <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[150px]" />
             </div>
             <div className="relative z-10">
-                <h2 className="text-4xl md:text-5xl font-bold font-headline text-glow mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">
                     Ready to Find Your Dream Home?
                 </h2>
                 <p className="text-xl text-muted-foreground mb-10">

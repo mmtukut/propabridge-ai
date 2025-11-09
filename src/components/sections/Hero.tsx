@@ -29,11 +29,10 @@ export const Hero = () => {
         <div className="container max-w-7xl text-center relative z-10">
             <h1 
               className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight"
-              style={{ textShadow: '0 0 25px hsl(var(--primary) / 0.5), 0 0 10px hsl(var(--primary) / 0.3)' }}
+              style={{ textShadow: '0 2px 4px hsla(0, 0%, 0%, 0.5)' }}
             >
                 Building Nigeria's Infrastructure for{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-300"
-                style={{ textShadow: '0 2px 4px hsl(var(--primary) / 0.5)' }}>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-300">
                     Trust in Property
                 </span>
             </h1>
