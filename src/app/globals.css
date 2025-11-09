@@ -6,23 +6,23 @@
   :root {
     /* Background Layers */
     --background: 144 15% 5%; /* --bg-deepest */
-    --foreground: 0 0% 98%;   /* --text-primary */
+    --foreground: 0 0% 100%;   /* --text-primary - Changed to pure white */
 
     --card: 144 10% 9%;       /* --bg-elevated */
-    --card-foreground: 0 0% 98%;
+    --card-foreground: 0 0% 100%;
 
     --popover: 144 10% 9%;
-    --popover-foreground: 0 0% 98%;
+    --popover-foreground: 0 0% 100%;
 
     /* Primary Accent (Digital Green) */
     --primary: 151 83% 46%;         /* --accent-primary */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 144 10% 15%; /* --bg-subtle */
-    --secondary-foreground: 0 0% 98%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 144 10% 12%;        /* --bg-hover */
-    --muted-foreground: 0 0% 78%; /* --text-secondary */
+    --muted-foreground: 0 0% 85%; /* --text-secondary - Made lighter */
 
     --accent: 151 83% 46%;
     --accent-foreground: 0 0% 100%;
@@ -39,22 +39,22 @@
 
   .dark {
     --background: 144 15% 5%;
-    --foreground: 0 0% 98%;
+    --foreground: 0 0% 100%;
 
     --card: 144 10% 9%;
-    --card-foreground: 0 0% 98%;
+    --card-foreground: 0 0% 100%;
 
     --popover: 144 10% 9%;
-    --popover-foreground: 0 0% 98%;
+    --popover-foreground: 0 0% 100%;
 
     --primary: 151 83% 46%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 144 10% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 144 10% 12%;
-    --muted-foreground: 0 0% 78%;
+    --muted-foreground: 0 0% 85%;
 
     --accent: 151 83% 46%;
     --accent-foreground: 0 0% 100%;
@@ -79,6 +79,6 @@
     @apply bg-background text-foreground;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline;
+    @apply font-headline text-foreground;
   }
 }
