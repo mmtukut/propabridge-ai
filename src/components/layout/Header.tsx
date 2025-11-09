@@ -54,10 +54,11 @@ const navLinks = [
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // This would come from a real auth context
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="container flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Logo />
         </Link>
@@ -106,12 +107,14 @@ export function Header() {
                     )
                   ))}
                   <div className="flex flex-col space-y-3 pt-6">
-                    <Button href="/landlords/new" variant="secondary" size="lg">
-                      List Your Property
-                    </Button>
-                    <Button href="/search" size="lg">
-                      Start Your Search
-                    </Button>
+                    {isAuthenticated ? (
+                       <Button href="/dashboard" size="lg">Dashboard</Button>
+                    ) : (
+                      <>
+                        <Button href="/login" variant="secondary" size="lg">Log In</Button>
+                        <Button href="/register" size="lg">Sign Up</Button>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -154,12 +157,18 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
-          <Button href="/landlords/new" variant="ghost">
-            List Your Property
-          </Button>
-          <Button href="/search">
-            Start Your Search
-          </Button>
+          {isAuthenticated ? (
+             <Button href="/dashboard">Dashboard</Button>
+          ) : (
+            <>
+              <Button href="/login" variant="ghost">
+                Log In
+              </Button>
+              <Button href="/register">
+                Sign Up
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </header>
