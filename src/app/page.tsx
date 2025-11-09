@@ -9,7 +9,7 @@ import { PopularLocations } from '@/components/sections/PopularLocations';
 
 export default function Home() {
   return (
-    <>
+    <div className='px-4 sm:px-6 lg:px-8'>
       <Hero />
       <Problem />
       <HowItWorks />
@@ -18,6 +18,6 @@ export default function Home() {
       <Testimonials />
       <ForLandlords />
       <Cta />
-    </>
+    </div>
   );
 }

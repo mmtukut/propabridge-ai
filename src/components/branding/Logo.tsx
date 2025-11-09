@@ -1,28 +1,19 @@
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
-export const Logo = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    width="160"
-    height="36"
-    viewBox="0 0 160 36"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className={cn(className)}
-    {...props}
-  >
-    <LogoIcon className="h-9 w-9" />
-    <text
-      x="44"
-      y="26"
-      fontFamily="'Space Grotesk', sans-serif"
-      fontSize="24"
-      fontWeight="bold"
-      fill="hsl(var(--foreground))"
-    >
-      Propabridge
-    </text>
-  </svg>
+export const Logo = ({ className, ...props }: { className?: string }) => (
+  <div className={cn("relative", className)} style={{ width: '140px', height: '38px' }} {...props}>
+    <Image
+      src="https://firebasestorage.googleapis.com/v0/b/studio-2814112704-1b3d1.firebasestorage.app/o/propabridge_logo.png?alt=media&token=bf3cf9a2-ee26-48d3-a079-afe38775c4a7"
+      alt="Propabridge Logo"
+      fill
+      priority
+      sizes="(max-width: 768px) 140px, 140px"
+      style={{ objectFit: 'contain' }}
+    />
+  </div>
 );
+
 
 export const LogoIcon = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => (
     <svg 

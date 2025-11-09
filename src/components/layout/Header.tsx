@@ -27,7 +27,28 @@ const navLinks = [
   },
   { href: '/how-it-works', label: 'How It Works' },
   { href: '/trust-safety', label: 'Trust & Safety' },
-  { href: '/about', label: 'Company' },
+  { 
+    label: 'Solutions', 
+    isDropdown: true, 
+    items: [
+      { label: 'For Renters', href: '/renters', description: 'Find your next home, stress-free.' },
+      { label: 'For Landlords', href: '/landlords', description: 'Access verified tenants, faster.' },
+      { label: 'For Developers', href: '/solutions/developers', description: 'Build with our robust APIs.' },
+      { label: 'For Government', href: '/solutions/government', description: 'Digitize and de-risk public services.' },
+      { label: 'For Enterprises', href: '/solutions/enterprises', description: 'Automate compliance and risk.' },
+    ]
+  },
+  { 
+    label: 'Company', 
+    isDropdown: true, 
+    items: [
+      { label: 'About Us', href: '/about', description: 'Our mission and vision.' },
+      { label: 'Careers', href: '/company/careers', description: 'Join our mission.' },
+      { label: 'Press', href: '/company/press', description: 'Media kits and releases.' },
+      { label: 'Contact', href: '/contact', description: 'Get in touch with our team.' },
+      { label: 'Partners', href: '/partners', description: 'Partner with Propabridge.' },
+    ]
+  },
 ];
 
 export function Header() {
@@ -35,7 +56,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 max-w-7xl items-center justify-between">
+      <div className="container flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Logo />
         </Link>
@@ -132,7 +153,7 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
-          <Button href="/landlords" variant="ghost">
+          <Button href="/landlords/new" variant="ghost">
             List Your Property
           </Button>
           <Button href="/search">

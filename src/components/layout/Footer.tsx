@@ -25,13 +25,6 @@ const footerLinks = {
     { label: 'For Government', href: '/solutions/government' },
     { label: 'For Enterprises', href: '/solutions/enterprises' },
   ],
-  resources: [
-    { label: 'Blog', href: '/resources/blog' },
-    { label: 'Guides', href: '/resources/guides' },
-    { label: 'FAQs', href: '/resources/faq' },
-    { label: 'API Docs', href: '/technology/api-docs' },
-    { label: 'Case Studies', href: '/insights/case-studies' },
-  ],
   company: [
     { label: 'About Us', href: '/about' },
     { label: 'Careers', href: '/company/careers' },
@@ -39,20 +32,27 @@ const footerLinks = {
     { label: 'Contact', href: '/contact' },
     { label: 'Partners', href: '/partners' },
   ],
+  resources: [
+    { label: 'Blog', href: '/resources/blog' },
+    { label: 'Guides', href: '/resources/guides' },
+    { label: 'FAQs', href: '/resources/faq' },
+    { label: 'API Docs', href: '/technology/api-docs' },
+    { label: 'Case Studies', href: '/insights/case-studies' },
+  ],
 };
 
 export function Footer() {
   return (
     <footer className="bg-background border-t">
-      <div className="container max-w-7xl py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+      <div className="container max-w-7xl py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Column 1: Brand */}
-          <div className="space-y-4 md:col-span-2">
+          <div className="space-y-4 md:col-span-2 lg:col-span-1">
             <Link href="/">
               <Logo />
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Building Nigeria's Infrastructure for Trust in Property.
+              Building Africa's Infrastructure for Trust in Property.
             </p>
             <div className="flex space-x-3">
               {socialLinks.map((social) => (
@@ -68,8 +68,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Columns 2-4: Links */}
-          <div className="grid grid-cols-2 md:grid-cols-3 col-span-1 md:col-span-3 gap-8">
+          {/* Columns 2-5: Links */}
+          <div className="grid grid-cols-2 md:grid-cols-4 col-span-1 lg:col-span-4 gap-8">
             <div>
               <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
                 Product
@@ -104,6 +104,20 @@ export function Footer() {
               </h3>
               <ul className="mt-4 space-y-3">
                 {footerLinks.company.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className="text-base text-muted-foreground hover:text-foreground">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">
+                Resources
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {footerLinks.resources.map((link) => (
                   <li key={link.label}>
                     <Link href={link.href} className="text-base text-muted-foreground hover:text-foreground">
                       {link.label}
